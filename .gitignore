@@ -24,3 +24,6 @@ data/qdrant/
 Thumbs.db
 .idea/
 .vscode/
+
+# Logs
+*.log

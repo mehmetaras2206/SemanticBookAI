@@ -1,0 +1,43 @@
+from functools import lru_cache
+from pathlib import Path
+
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+ROOT_DIR = Path(__file__).resolve().parents[2]
+
+
+class Settings(BaseSettings):
+    model_config = SettingsConfigDict(env_file=ROOT_DIR / ".env", extra="ignore")
+
+    data_dir: Path = ROOT_DIR / "data"
+
+    # Qdrant: a URL for the server (docker), otherwise embedded local mode on disk.
+    qdrant_url: str | None = None
+    qdrant_path: Path = ROOT_DIR / "data" / "qdrant"
+
+    dense_model: str = "jinaai/jina-embeddings-v2-base-de"
+    sparse_model: str = "Qdrant/bm25"
+
+    ollama_url: str = "http://localhost:11434"
+    llm_model: str = "gemma4:12b"
+    llm_temperature: float = 0.1
+    llm_num_ctx: int = 8192
+
+    # Retrieval / guardrails
+    chat_top_k: int = 6
+    rrf_k: int = 60
+    min_dense_score: float = 0.35
+    max_question_chars: int = 1000
+
+    @property
+    def raw_dir(self) -> Path:
+        return self.data_dir / "raw"
+
+    @property
+    def processed_dir(self) -> Path:
+        return self.data_dir / "processed"
+
+
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()

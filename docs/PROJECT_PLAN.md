@@ -42,7 +42,7 @@ Der Start ist optimal, wenn Repo, Werkzeuge, Daten und LLM-Zugang stehen, bevor 
 | Node.js | 24.13 / npm 11.6 | Vite + React + TypeScript |
 | Docker | **nicht installiert** | Docker Desktop installieren (braucht WSL2). Bis dahin: Qdrant im Local Mode von `qdrant-client` |
 | GPU | RTX 3080 Ti, 12 GB | nicht nötig; Embeddings per ONNX (`fastembed`) auf CPU |
-| LLM | nur lokal, kein Cloud-LLM (Entscheidung 2026-10-12) | Ollama mit `gemma4:12b` (ca. 7,7 GB, passt in 12 GB VRAM); nativ für Entwicklung, als Container in compose |
+| LLM | nur lokal, kein Cloud-LLM (Entscheidung 2026-10-12) | Ollama; Modell 3–8 GB, per Eval gewählt; nativ für Entwicklung, als Container in compose |
 | WSL2 | Komponente „Plattform für virtuelle Computer“ fehlt, BIOS-Virtualisierung aktiv | `wsl --install --no-distribution` (Admin + Neustart), danach Docker Desktop |
 
 ### 2.2 Erste Schritte (in dieser Reihenfolge)
@@ -74,7 +74,7 @@ flowchart LR
         CHAT[/api/chat SSE/] --> GR1[Input-Guardrails]
         GR1 --> R[Hybrid Passage-Retrieval] --> Q
         R --> GR2[Relevanz-Schwelle<br/>sonst Ablehnung]
-        GR2 --> LLM[Ollama lokal<br/>gemma4:12b, Streaming]
+        GR2 --> LLM[Ollama lokal<br/>Streaming]
         LLM --> GR3[Zitat-Prüfung]
     end
     UI[React UI<br/>Katalog + Chat] --> S
@@ -92,7 +92,7 @@ flowchart LR
 | Sparse | `fastembed` `Qdrant/bm25` + Qdrant-IDF-Modifier | echtes BM25-Scoring in Qdrant |
 | Fusion | Reciprocal Rank Fusion, k = 60 | Standardverfahren, ohne Score-Normalisierung |
 | Backend | FastAPI, Pydantic v2, SSE über `StreamingResponse` | schlank, typisiert, async |
-| LLM | Ollama, Standard `gemma4:12b`, Vergleich `qwen3.5:9b` (Modell per `.env`) | lokal, keine Secrets, kein Key für Dritte, on-premise-fähig |
+| LLM | Ollama, Kandidaten `qwen3.5:4b` / `gemma4:e4b` / `gemma4:12b`, Wahl per Eval (Modell per `.env`) | lokal, keine Secrets, kein Key für Dritte, on-premise-fähig |
 | Frontend | Vite + React + TypeScript, ohne UI-Framework | schlank, schneller Build |
 | Auslieferung | `docker compose`: `qdrant`, `ollama` (GPU optional), `api`, `web` (nginx) | ein Startbefehl, kein API-Key |
 | Tests | `pytest` (Backend), `tsc` + Build (Frontend) | |
@@ -185,9 +185,9 @@ Das Projekt ist abgeschlossen, wenn **jeder** Punkt prüfbar erfüllt ist:
 - [ ] Hybrid erreicht **Recall@5 (Buch-Ebene) ≥ 0,85** und ist bei MRR mindestens so gut wie
       dense-only und sparse-only (Vergleichstabelle im README).
 - [ ] Kapitel-Treffer: **Recall@5 (Kapitel-Ebene) ≥ 0,60**.
-- [ ] Mit `gemma4:12b`: **Zitat-Gültigkeit 100 %** (kein Zitat auf nicht gelieferte Quellen), alle 3
+- [ ] Mit dem Standardmodell: **Zitat-Gültigkeit 100 %** (kein Zitat auf nicht gelieferte Quellen), alle 3
       unbeantwortbaren Fragen korrekt abgelehnt, Faithfulness (lokales LLM-as-Judge) ≥ 0,8.
-- [ ] Vergleichstabelle `gemma4:12b` vs. `qwen3.5:9b` (Antwortmetriken + Tokens/s) im README.
+- [ ] Vergleichstabelle der drei Kandidatenmodelle (Antwortmetriken + Tokens/s) im README; Standardmodell nach der Regel in Abschnitt 8 gewählt.
 
 ### Engineering
 - [ ] Backend-Tests (`pytest`) grün, inklusive Chunking, RRF-Logik, Guardrails, API-Endpunkte.
@@ -244,7 +244,8 @@ LLM-as-Judge läuft ebenfalls lokal (gleiches Modell); diese Einschränkung wird
 **Getroffene Entscheidungen:**
 - Name und Repo: `SemanticBookAI`, öffentlich unter `mehmetaras2206`.
 - Sprache von Code/README: Englisch; dieses Planungsdokument: Deutsch.
-- LLM: ausschließlich lokal über Ollama, Standard `gemma4:12b`, Modell über `LLM_MODEL` in `.env`. Kein Cloud-LLM, keine Secrets im Projekt.
+- LLM: ausschließlich lokal über Ollama, Modell über `LLM_MODEL` in `.env`. Kein Cloud-LLM, keine Secrets im Projekt.
+- Modellwahl datengetrieben: Kandidaten `qwen3.5:4b` (ca. 3,3 GB), `gemma4:e4b` (ca. 6,6 GB), `gemma4:12b` (ca. 7,7 GB). Standard wird das **kleinste** Modell, das alle Antwort-Zielwerte der Definition of Done erreicht. Tabelle Größe vs. Qualität vs. Tokens/s im README.
 - Entwicklung nativ (Ollama für Windows, Qdrant Local Mode), Abnahme über `docker compose`.
 
 **Stoppkriterien (wann Schluss ist):**

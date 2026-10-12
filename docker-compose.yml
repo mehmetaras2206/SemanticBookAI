@@ -1,0 +1,53 @@
+# docker compose up  ->  UI on http://localhost:8080
+# GPU (NVIDIA):        docker compose -f docker-compose.yml -f docker-compose.gpu.yml up
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.19.2
+    volumes:
+      - qdrant_data:/qdrant/storage
+    ports:
+      - "6333:6333"
+
+  ollama:
+    image: ollama/ollama:0.40.3
+    volumes:
+      - ollama_models:/root/.ollama
+    ports:
+      - "11434:11434"
+
+  ollama-pull:
+    image: ollama/ollama:0.40.3
+    depends_on: [ollama]
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: ["/bin/sh", "-c", "until ollama list >/dev/null 2>&1; do sleep 1; done; ollama pull ${LLM_MODEL:-gemma4:12b}"]
+    restart: "no"
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    depends_on: [qdrant, ollama]
+    environment:
+      QDRANT_URL: http://qdrant:6333
+      OLLAMA_URL: http://ollama:11434
+      LLM_MODEL: ${LLM_MODEL:-gemma4:12b}
+    volumes:
+      - book_data:/srv/data/processed
+      - book_raw:/srv/data/raw
+      - embedding_models:/models
+    ports:
+      - "8000:8000"
+
+  web:
+    build: ./frontend
+    depends_on: [api]
+    ports:
+      - "8080:80"
+
+volumes:
+  qdrant_data:
+  ollama_models:
+  book_data:
+  book_raw:
+  embedding_models:
