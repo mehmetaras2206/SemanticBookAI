@@ -92,7 +92,7 @@ flowchart LR
 | Sparse | `fastembed` `Qdrant/bm25` + Qdrant-IDF-Modifier | echtes BM25-Scoring in Qdrant |
 | Fusion | Reciprocal Rank Fusion, k = 60, eigene Implementierung in `store.py` | Standardverfahren, ohne Score-Normalisierung, unit-getestet |
 | Backend | FastAPI, Pydantic v2, SSE über `StreamingResponse` | schlank, typisiert, async |
-| LLM | Ollama, Standard `gemma4:12b`; Kandidaten `qwen3.5:4b` / `gemma4:e4b` per `.env` | lokal, keine Secrets, kein Key für Dritte, on-premise-fähig |
+| LLM | Ollama, Standard `qwen3.5:4b`; `gemma4:e4b` / `gemma4:12b` per `.env` | lokal, keine Secrets, kein Key für Dritte, on-premise-fähig |
 | Frontend | Vite + React + TypeScript, ohne UI-Framework | schlank, schneller Build |
 | Auslieferung | `docker compose`: `qdrant`, `ollama` (GPU optional), `api`, `web` (nginx) | ein Startbefehl, kein API-Key |
 | Tests | `pytest` (Backend), `tsc` + Build (Frontend) | |
@@ -254,12 +254,15 @@ LLM-as-Judge läuft ebenfalls lokal (gleiches Modell); diese Einschränkung wird
   Ollama auf der GPU.
 - *Qdrant Local Mode* wird beim Einfügen mit wachsender Collection immer langsamer; das Qdrant-Windows-Binary
   scheiterte am Optimizer (Datei-Umbenennung, Zugriff verweigert). Deshalb läuft Qdrant im Container.
-- *Vorgebauter Index:* `python -m app.ingest export/restore` und das Release-Asset `index-v1` (135 MB). So startet
+- *Vorgebauter Index:* `python -m app.ingest export/restore` und das Release-Asset `index-v1` (133 MB). So startet
   `docker compose up` ohne stundenlanges Embedding auf der CPU.
-- *Modellwahl:* Im finalen Lauf erfüllen alle drei Kandidaten die Antwort-Zielwerte. Die Regel „kleinstes Modell“
-  hätte `qwen3.5:4b` gewählt, das aber 7 von 24 beantwortbaren Fragen ablehnt. Die Regel wurde um die Kennzahl
-  „korrekt insgesamt“ (Ablehnung zählt 0) ergänzt; danach ist `gemma4:12b` Standard (0,65 gegenüber 0,56/0,58,
-  1 von 24 Fehlablehnungen).
+- *Modellwahl:* In zwei vollständigen Läufen erfüllen alle drei Kandidaten die Antwort-Zielwerte; „korrekt
+  insgesamt“ (Ablehnung zählt 0) schwankt zwischen den Läufen um mehr als den Abstand der Modelle (0,56/0,58/0,65
+  bzw. 0,62/0,60/0,58). Nach der Regel ist daher `qwen3.5:4b` Standard. Stabiler Unterschied: `gemma4:12b` lehnt
+  seltener fälschlich ab (1–3 statt 6–7 von 24) und ist im README als Option für 12-GB-GPUs genannt.
+- *Zeilenenden:* Die Rohtexte wurden zunächst im Windows-Textmodus gespeichert (CR CR LF statt CR LF),
+  wodurch jede Zeile ein eigener Absatz wurde. Korrigiert (Bytes speichern, Zeilenenden normalisieren, Test),
+  Korpus und Index neu gebaut.
 - *Winnetou I* gibt es auf Gutenberg nur als Hörbuch; der Korpus hat daher 63 statt 64 Bücher.
 
 **Stoppkriterien (wann Schluss ist):**

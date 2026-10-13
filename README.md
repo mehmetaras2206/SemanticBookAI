@@ -7,7 +7,7 @@ Ask a question in English or German and get an answer that cites book, chapter a
 ![Demo](docs/demo.gif)
 
 - **Two retrieval levels:** a hybrid catalog search over title, author, subjects and description (filters for
-  language and era), and passage retrieval over 45,117 full-text passages for the chat.
+  language and era), and passage retrieval over 44,700 full-text passages for the chat.
 - **Hybrid retrieval:** dense embeddings (`bge-m3`) and BM25 sparse vectors in Qdrant, fused with
   Reciprocal Rank Fusion (RRF, implemented and unit-tested in `backend/app/store.py`).
 - **Grounded chat with streaming:** a local LLM (Ollama) answers only from the retrieved passages. Every claim
@@ -28,8 +28,8 @@ docker compose -f docker-compose.yml -f docker-compose.gpu.yml up
 ```
 
 Open <http://localhost:8080>. On first start the stack
-1. pulls `bge-m3` (1.2 GB) and the chat model (`gemma4:12b`, 8 GB) into the Ollama volume, and
-2. restores the prebuilt search index (135 MB, attached to the GitHub release) into Qdrant.
+1. pulls `bge-m3` (1.2 GB) and the chat model (`qwen3.5:4b`, 3.3 GB) into the Ollama volume, and
+2. restores the prebuilt search index (133 MB, attached to the GitHub release) into Qdrant.
 
 The status badge in the header shows when the model is ready. Everything is cached in Docker volumes, so later
 starts take seconds. To build the index from the books yourself, set `INDEX_URL=` (empty). This takes about
@@ -37,16 +37,16 @@ starts take seconds. To build the index from the books yourself, set `INDEX_URL=
 
 **Troubleshooting**
 
-- *Docker Desktop on Windows:* the WSL VM needs about 12 GB of RAM for `gemma4:12b`. With a smaller limit in
-  `%UserProfile%\.wslconfig` (e.g. `memory=6GB`) the model loads slowly or crashes and the chat falls back to
-  showing passages. Raise the limit or use `LLM_MODEL=gemma4:e4b` / `LLM_MODEL=qwen3.5:4b`.
+- *Larger model:* `LLM_MODEL=gemma4:12b docker compose up` (8 GB, fewer false refusals, see the eval). On Docker
+  Desktop for Windows the WSL VM then needs about 12 GB of RAM; with a lower `memory=` limit in
+  `%UserProfile%\.wslconfig` the model loads slowly or crashes and the chat falls back to showing passages.
 - *Port 8080 in use* (on Windows often reserved by Hyper-V): `WEB_PORT=8088 docker compose up`.
 - *First answer is slow:* the API loads the chat model at start-up; the header badge turns green when it is ready.
 
-| Hardware | Chat speed (`gemma4:12b`) |
+| Hardware | Chat speed (`qwen3.5:4b`) |
 | --- | --- |
-| NVIDIA RTX 3080 Ti (12 GB) | ~110 tokens/s, first token after ~1.2 s |
-| CPU only | a few tokens/s; `LLM_MODEL=qwen3.5:4b docker compose up` for a 3.3 GB model |
+| NVIDIA RTX 3080 Ti (12 GB) | ~140 tokens/s, first token after ~0.5 s |
+| CPU only | roughly 5–15 tokens/s depending on the CPU |
 
 ## Architecture
 
@@ -81,7 +81,7 @@ flowchart LR
 | Dense embeddings | `bge-m3` via Ollama | strong multilingual retrieval (German and English), 8k context, runs on the GPU |
 | Sparse | `Qdrant/bm25` (fastembed) | real BM25 term weighting; catches names and rare words that embeddings blur |
 | Fusion | RRF, k = 60 | rank-based, no score normalisation between incompatible scales |
-| LLM | Ollama, default `gemma4:12b` | most correct answers among three local models measured in the eval (see below) |
+| LLM | Ollama, default `qwen3.5:4b` | smallest of three measured local models that meets every answer target (see below) |
 | API | FastAPI, server-sent events | typed, async streaming |
 | UI | React 19 + Vite + TypeScript | catalog search, retrieval-mode toggle, streaming chat, citation drawer |
 
@@ -93,7 +93,8 @@ flowchart LR
    Passages are embedded with their book title and chapter so they stay findable by context.
 3. **Relevance gate:** if no passage reaches a cosine similarity of 0.43, the API answers "not in the
    sources" without calling the LLM. The threshold is calibrated on the eval set, just below the lowest
-   answerable question.
+   answerable question (0.47). The gate only catches clearly off-topic questions; the score ranges of
+   answerable and unanswerable questions overlap, so the model's refusal sentinel is the second line of defence.
 4. **Generation:** the system prompt demands an answer only from the numbered sources, a citation after every
    sentence, the language of the question, and the sentinel `NO_ANSWER` when the sources do not contain the
    answer. Tokens stream to the browser; the sentinel is held back and turned into a refusal.
@@ -111,9 +112,9 @@ Passage retrieval for the chat (24 questions, EN + DE, one cross-lingual, no boo
 
 | Mode | Book R@1 | Book R@5 | Chapter R@5 | Evidence R@5 | MRR@10 |
 | --- | --- | --- | --- | --- | --- |
-| dense (`bge-m3`) | 0.96 | 1.00 | 0.67 | 0.58 | 0.98 |
-| sparse (BM25) | 0.83 | 0.88 | 0.62 | 0.38 | 0.85 |
-| **hybrid (RRF)** | **1.00** | **1.00** | **0.88** | 0.54 | **1.00** |
+| dense (`bge-m3`) | 1.00 | 1.00 | 0.67 | 0.50 | 1.00 |
+| sparse (BM25) | 0.83 | 0.92 | 0.67 | 0.42 | 0.86 |
+| **hybrid (RRF)** | **1.00** | **1.00** | **0.79** | 0.50 | **1.00** |
 
 Catalog search (9 descriptive queries such as "Roman über den Niedergang einer Kaufmannsfamilie"):
 
@@ -123,34 +124,33 @@ Catalog search (9 descriptive queries such as "Roman über den Niedergang einer 
 | sparse | 0.78 | 0.68 |
 | hybrid | 1.00 | 0.81 |
 
-Hybrid search finds the right book first for every question and lifts chapter recall from 0.67 to 0.88.
-For catalog queries made of descriptive paraphrases, dense alone ranks slightly better, because BM25 adds
-noise when no query word appears in the metadata. Search latency is about 50 ms warm (query embedding,
-two Qdrant queries and RRF).
+Hybrid search finds the right book first for every question and lifts chapter recall from 0.67 (dense or
+BM25 alone) to 0.79: the two retrievers miss different chapters, and RRF keeps the hits of both. For catalog
+queries made of descriptive paraphrases, dense alone ranks slightly better, because BM25 adds noise when no
+query word appears in the metadata. Search latency is about 50 ms (query embedding, two Qdrant queries, RRF).
 
 ### Grounded answers
 
 | Model | Correct overall | Correctness (answered) | Faithfulness | Citation validity | Unanswerable refused | False refusals | p50 first token | p50 tokens/s |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `qwen3.5:4b` (3.3 GB) | 0.56 | 0.79 | 0.97 | 1.00 | 3/3 | 7/24 | 0.42 s | 141 |
-| `gemma4:e4b` (6.6 GB) | 0.58 | 0.70 | 1.00 | 1.00 | 3/3 | 4/24 | 0.42 s | 160 |
-| **`gemma4:12b`** (8.0 GB) | **0.65** | 0.67 | 1.00 | 1.00 | 3/3 | **1/24** | 1.16 s | 112 |
+| **`qwen3.5:4b`** (3.3 GB) | 0.62 | 0.83 | 1.00 | 1.00 | 3/3 | 6/24 | 0.46 s | 141 |
+| `gemma4:e4b` (6.6 GB) | 0.60 | 0.72 | 1.00 | 1.00 | 3/3 | 4/24 | 0.38 s | 169 |
+| `gemma4:12b` (8.0 GB) | 0.58 | 0.67 | 1.00 | 1.00 | 3/3 | 3/24 | 1.18 s | 111 |
 
-24 answerable and 3 unanswerable questions, RTX 3080 Ti. *Correct overall* counts a refusal as 0, so it is
-what a user actually gets.
+24 answerable and 3 unanswerable questions, RTX 3080 Ti. *Correct overall* counts a refusal as 0, so it is what
+a user actually gets. Faithfulness and correctness are graded by a local LLM-as-judge (`gemma4:12b`), so treat
+them as indicative.
 
-Faithfulness and correctness are graded by a local LLM-as-judge (`gemma4:12b`), so treat them as indicative.
-
-**Default model: `gemma4:12b`.** All three models meet the answer targets of the
+**Default model: `qwen3.5:4b`.** All three models meet the answer targets of the
 [definition of done](docs/PROJECT_PLAN.md#6-optimales-ende-definition-of-done): 100 % citation validity, every
-unanswerable question refused, faithfulness ≥ 0.8. The smaller models get there by refusing more: `qwen3.5:4b`
-declines 7 of 24 answerable questions. `gemma4:12b` declines one and gives the most correct answers overall, and
-it still fits a 12 GB GPU. On smaller hardware set `LLM_MODEL=gemma4:e4b` or `LLM_MODEL=qwen3.5:4b`.
+unanswerable question refused, faithfulness ≥ 0.8. Their overall correctness differs by less than run-to-run noise
+(one question is 0.04; in an earlier run the order was reversed: 0.56 / 0.58 / 0.65). So the plan's rule applies:
+the smallest model that meets every target. The one stable difference is caution: `qwen3.5:4b` declines 6–7 of 24
+answerable questions, `gemma4:12b` only 1–3. With a 12 GB GPU, `LLM_MODEL=gemma4:12b` is the better demo.
 
-**Two tuning rounds, documented:** (1) raising the retrieved passages from 6 to 12 moved no metric beyond noise,
-so the chat keeps 6 (smaller prompt, faster first token). (2) Some models declined in prose ("none of the
-passages state …") instead of emitting the `NO_ANSWER` sentinel; a stricter instruction fixed the refusal
-rate for all three models.
+**Tuning rounds:** (1) retrieving 12 instead of 6 passages moved no metric beyond noise, so the chat keeps 6
+(smaller prompt, faster first token). (2) Some models declined in prose ("none of the passages state …") instead
+of emitting the `NO_ANSWER` sentinel; a stricter instruction fixed the refusal rate for all three models.
 
 **What limits correctness:** the models stay faithful. When the evidence passage is not among the retrieved
 ones, they say so instead of guessing. Typical misses are questions whose wording differs from the text
@@ -163,7 +163,7 @@ Requirements: Python 3.12+, Node 20+, Ollama, and Qdrant (Docker or binary).
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d qdrant
-ollama pull bge-m3 && ollama pull gemma4:12b
+ollama pull bge-m3 && ollama pull qwen3.5:4b
 cp .env.example .env                        # set QDRANT_URL=http://127.0.0.1:6333
 
 cd backend

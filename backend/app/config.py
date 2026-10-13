@@ -22,14 +22,14 @@ class Settings(BaseSettings):
     sparse_model: str = "Qdrant/bm25"
 
     ollama_url: str = "http://127.0.0.1:11434"
-    llm_model: str = "gemma4:12b"
+    llm_model: str = "qwen3.5:4b"
     llm_temperature: float = 0.1
     llm_num_ctx: int = 4096  # 6 passages + prompt + answer fit; keeps the KV cache small
 
     # Retrieval / guardrails
     chat_top_k: int = 6
     rrf_k: int = 60
-    min_dense_score: float = 0.43  # calibrated on eval/qa.jsonl: lowest answerable question scores 0.48
+    min_dense_score: float = 0.43  # calibrated on eval/qa.jsonl: lowest answerable question scores 0.47
     max_question_chars: int = 1000
 
     @property

@@ -1,6 +1,6 @@
 # Evaluation results
 
-Corpus: 63 books, 45117 passages · dense model `bge-m3` (Ollama) · sparse `Qdrant/bm25` · RRF k=60
+Corpus: 63 books, 44700 passages · dense model `bge-m3` (Ollama) · sparse `Qdrant/bm25` · RRF k=60
 
 ## Passage retrieval (chat)
 
@@ -8,9 +8,9 @@ Corpus: 63 books, 45117 passages · dense model `bge-m3` (Ollama) · sparse `Qdr
 
 | Mode | Book R@1 | Book R@5 | Chapter R@5 | Evidence R@5 | MRR@10 | p50 latency |
 | --- | --- | --- | --- | --- | --- | --- |
-| dense | 0.96 | 1.00 | 0.67 | 0.58 | 0.98 | 89 ms |
-| sparse | 0.83 | 0.88 | 0.62 | 0.38 | 0.85 | 29 ms |
-| hybrid | 1.00 | 1.00 | 0.88 | 0.54 | 1.00 | 53 ms |
+| dense | 1.00 | 1.00 | 0.67 | 0.50 | 1.00 | 60 ms |
+| sparse | 0.83 | 0.92 | 0.67 | 0.42 | 0.86 | 49 ms |
+| hybrid | 1.00 | 1.00 | 0.79 | 0.50 | 1.00 | 55 ms |
 
 ## Catalog search
 
@@ -18,9 +18,9 @@ Corpus: 63 books, 45117 passages · dense model `bge-m3` (Ollama) · sparse `Qdr
 
 | Mode | Recall@5 | MRR@10 | p50 latency |
 | --- | --- | --- | --- |
-| dense | 1.00 | 0.86 | 31 ms |
-| sparse | 0.78 | 0.68 | 26 ms |
-| hybrid | 1.00 | 0.81 | 34 ms |
+| dense | 1.00 | 0.86 | 41 ms |
+| sparse | 0.78 | 0.68 | 42 ms |
+| hybrid | 1.00 | 0.81 | 47 ms |
 
 ## Grounded answers (local LLMs via Ollama)
 
@@ -28,9 +28,9 @@ Corpus: 63 books, 45117 passages · dense model `bge-m3` (Ollama) · sparse `Qdr
 
 | Model | Correct overall | Correctness (answered) | Faithfulness | Citation validity | Answers with citation | Unanswerable refused | False refusals | p50 TTFT | p50 tok/s |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `qwen3.5:4b` | 0.56 | 0.79 | 0.97 | 1.00 | 1.00 | 3/3 | 7/24 | 0.42 s | 141 |
-| `gemma4:e4b` | 0.58 | 0.70 | 1.00 | 1.00 | 1.00 | 3/3 | 4/24 | 0.42 s | 160 |
-| `gemma4:12b` | 0.65 | 0.67 | 1.00 | 1.00 | 0.91 | 3/3 | 1/24 | 1.16 s | 112 |
+| `qwen3.5:4b` | 0.62 | 0.83 | 1.00 | 1.00 | 1.00 | 3/3 | 6/24 | 0.46 s | 141 |
+| `gemma4:e4b` | 0.60 | 0.72 | 1.00 | 1.00 | 1.00 | 3/3 | 4/24 | 0.38 s | 169 |
+| `gemma4:12b` | 0.58 | 0.67 | 1.00 | 1.00 | 0.95 | 3/3 | 3/24 | 1.18 s | 111 |
 
 *Correct overall* = judge correctness over all answerable questions, a refusal counts as 0.
 
