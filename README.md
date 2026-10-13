@@ -43,10 +43,13 @@ starts take seconds. To build the index from the books yourself, set `INDEX_URL=
 - *Port 8080 in use* (on Windows often reserved by Hyper-V): `WEB_PORT=8088 docker compose up`.
 - *First answer is slow:* the API loads the chat model at start-up; the header badge turns green when it is ready.
 
-| Hardware | Chat speed (`qwen3.5:4b`) |
+| Hardware | Chat speed (`qwen3.5:4b`, measured in the Docker stack) |
 | --- | --- |
 | NVIDIA RTX 3080 Ti (12 GB) | ~140 tokens/s, first token after ~0.5 s |
-| CPU only | roughly 5–15 tokens/s depending on the CPU |
+| CPU only (Ryzen 9 5900X) | ~11 tokens/s, first token after ~23 s (reading the six source passages dominates) |
+
+In this test the first start took about five minutes (model download and index restore run in parallel).
+Without a GPU, the stack needs about 5 GB of RAM in Docker.
 
 ## Architecture
 

@@ -170,35 +170,48 @@ Abhängigkeiten: M1 → M2 → M3 → (M4, M5 parallel möglich) → M6 → M7.
 Das Projekt ist abgeschlossen, wenn **jeder** Punkt prüfbar erfüllt ist:
 
 ### Funktion
-- [ ] `git clone` + `cp .env.example .env` + `docker compose up` startet Qdrant, API und UI ohne
+- [x] `git clone` + `cp .env.example .env` + `docker compose up` startet Qdrant, API und UI ohne
       weitere Handgriffe; die UI ist unter `http://localhost:8080` erreichbar.
-- [ ] Der Index enthält 50–100 Bücher in Deutsch und Englisch aus mindestens vier Epochen.
-- [ ] Katalogsuche liefert Ergebnisse in < 500 ms (lokal, warm) und filtert korrekt nach Sprache und Epoche.
-- [ ] Umschalter `hybrid / dense / sparse` funktioniert und zeigt unterschiedliche Rankings.
-- [ ] Chat streamt Tokens sichtbar; jede inhaltliche Antwort enthält mindestens ein Zitat
+      *(Mit frischen Volumes geprüft: Standardkonfiguration nur auf der CPU mit `qwen3.5:4b`, außerdem mit
+      GPU-Overlay und `gemma4:12b`. Nach etwa 5 Minuten bereit; Chat über nginx mit Zitaten, Ablehnung bei
+      Off-Topic-Fragen. Auf dem Entwicklungsrechner war Port 8080 von Hyper-V reserviert, daher lief der Test
+      mit `WEB_PORT=8088`; im README unter Troubleshooting beschrieben.)*
+- [x] Der Index enthält 50–100 Bücher in Deutsch und Englisch aus mindestens vier Epochen.
+      *(63 Bücher: 21 DE, 42 EN; fünf Epochen von der Antike bis 1930; 44.700 Passagen.)*
+- [x] Katalogsuche liefert Ergebnisse in < 500 ms (lokal, warm) und filtert korrekt nach Sprache und Epoche.
+      *(36 Kombinationen aus Sprache × Epoche ohne Filterverletzung; p50 77 ms, Maximum 98 ms.)*
+- [x] Umschalter `hybrid / dense / sparse` funktioniert und zeigt unterschiedliche Rankings.
+      *(Im Demo-GIF sichtbar; Metriken je Modus in `eval/results.md`.)*
+- [x] Chat streamt Tokens sichtbar; jede inhaltliche Antwort enthält mindestens ein Zitat
       mit Buch, Kapitel und Passage; Klick auf das Zitat zeigt den Passage-Text.
-- [ ] Fragen ohne Grundlage in den Quellen werden abgelehnt statt halluziniert.
-- [ ] Ist Ollama nicht erreichbar oder das Modell noch nicht geladen, zeigt die UI einen klaren Hinweis und liefert die Top-Passagen (extraktiver Fallback) statt eines Fehlers.
+      *(Demo-GIF; die API markiert Antworten ohne Zitat.)*
+- [x] Fragen ohne Grundlage in den Quellen werden abgelehnt statt halluziniert. *(3/3 in der Eval, alle Modelle.)*
+- [x] Ist Ollama nicht erreichbar oder das Modell noch nicht geladen, zeigt die UI einen klaren Hinweis und liefert die Top-Passagen (extraktiver Fallback) statt eines Fehlers.
+      *(Test `test_chat_falls_back_to_passages_when_llm_is_down`; im Docker-Test mit zu wenig WSL-RAM beobachtet.)*
 
 ### Qualität (Eval)
-- [ ] `python eval/run_eval.py` läuft durch und schreibt `eval/results.md`.
-- [ ] Hybrid erreicht **Recall@5 (Buch-Ebene) ≥ 0,85** und ist bei MRR mindestens so gut wie
-      dense-only und sparse-only (Vergleichstabelle im README).
-- [ ] Kapitel-Treffer: **Recall@5 (Kapitel-Ebene) ≥ 0,60**.
-- [ ] Mit dem Standardmodell: **Zitat-Gültigkeit 100 %** (kein Zitat auf nicht gelieferte Quellen), alle 3
+- [x] `python eval/run_eval.py` läuft durch und schreibt `eval/results.md`.
+- [x] Hybrid erreicht **Recall@5 (Buch-Ebene) ≥ 0,85** und ist bei MRR mindestens so gut wie
+      dense-only und sparse-only (Vergleichstabelle im README). *(Book R@5 1,00; MRR 1,00 vs. 1,00 dense und 0,86 BM25.)*
+- [x] Kapitel-Treffer: **Recall@5 (Kapitel-Ebene) ≥ 0,60**. *(Hybrid 0,79; dense und BM25 je 0,67.)*
+- [x] Mit dem Standardmodell: **Zitat-Gültigkeit 100 %** (kein Zitat auf nicht gelieferte Quellen), alle 3
       unbeantwortbaren Fragen korrekt abgelehnt, Faithfulness (lokales LLM-as-Judge) ≥ 0,8.
-- [ ] Vergleichstabelle der drei Kandidatenmodelle (Antwortmetriken + Tokens/s) im README; Standardmodell nach der (ergänzten) Regel in Abschnitt 8 gewählt.
+      *(`qwen3.5:4b`: 1,00 / 3 von 3 / 1,00.)*
+- [x] Vergleichstabelle der drei Kandidatenmodelle (Antwortmetriken + Tokens/s) im README; Standardmodell nach der (ergänzten) Regel in Abschnitt 8 gewählt.
 
 ### Engineering
-- [ ] Backend-Tests (`pytest`) grün, inklusive Chunking, RRF-Logik, Guardrails, API-Endpunkte.
-- [ ] Frontend baut ohne TypeScript-Fehler.
-- [ ] GitHub Actions CI grün auf `main`.
-- [ ] Keine Secrets im Repo; `.env.example` dokumentiert alle Variablen.
+- [x] Backend-Tests (`pytest`) grün, inklusive Chunking, RRF-Logik, Guardrails, API-Endpunkte. *(25 Tests.)*
+- [x] Frontend baut ohne TypeScript-Fehler.
+- [x] GitHub Actions CI grün auf `main`. *(Jobs backend, frontend, docker build.)*
+- [x] Keine Secrets im Repo; `.env.example` dokumentiert alle Variablen.
 
 ### Präsentation
-- [ ] README auf Englisch: Pitch, GIF der Demo, Architekturdiagramm (Mermaid), Quickstart,
+- [x] README auf Englisch: Pitch, GIF der Demo, Architekturdiagramm (Mermaid), Quickstart,
       Eval-Ergebnisse, Designentscheidungen, Datenlizenzen.
-- [ ] Repo öffentlich auf GitHub, Beschreibung und Topics gesetzt, Release `v1.0.0`.
+- [x] Repo öffentlich auf GitHub, Beschreibung und Topics gesetzt, Release `v1.0.0`.
+
+**Stand 2026-10-13:** Alle Punkte erfüllt, Projekt nach Stoppkriterium 1 abgeschlossen. Offene Ideen stehen im
+README unter „Future work“.
 
 **Stopp-Regel:** Sind alle Haken gesetzt, wird nichts Neues mehr gebaut. Ideen landen im Abschnitt
 „Future work“ des README.
