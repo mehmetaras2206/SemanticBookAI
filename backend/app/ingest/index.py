@@ -9,6 +9,7 @@ from qdrant_client import models
 from app.config import Settings
 from app.store import (
     BOOKS, DENSE, PASSAGES, SPARSE, embed_dense, embed_sparse, get_client, point_id, recreate_collection,
+    unload_embedding_model,
 )
 
 BATCH = 128
@@ -64,6 +65,8 @@ def _upsert(collection: str, rows: list[dict], texts: list[str], keys: list[str]
 
 def build_index(settings: Settings, resume: bool = False) -> tuple[int, int]:
     client = get_client()
+    # A runner loaded for CPU query embeddings would be reused for the bulk run; unload it so Ollama uses the GPU.
+    unload_embedding_model()
     books = [json.loads(line) for line in (settings.processed_dir / "books.jsonl").open(encoding="utf-8")]
     passages = [json.loads(line) for line in (settings.processed_dir / "passages.jsonl").open(encoding="utf-8")]
     eras = {b["book_id"]: b["era"] for b in books}

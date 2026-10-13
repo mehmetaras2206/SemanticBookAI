@@ -34,12 +34,22 @@ def _ollama_http() -> httpx.Client:
     return httpx.Client(base_url=get_settings().ollama_url, timeout=600)
 
 
-def embed_dense(texts: list[str]) -> list[list[float]]:
-    """Dense embeddings from Ollama (runs on the GPU when available)."""
+def embed_dense(texts: list[str], query: bool = False) -> list[list[float]]:
+    """Dense embeddings from Ollama: documents on the GPU when available, queries on the CPU by default."""
     s = get_settings()
-    r = _ollama_http().post("/api/embed", json={"model": s.embed_model, "input": texts})
+    body = {"model": s.embed_model, "input": texts, "keep_alive": s.ollama_keep_alive}
+    if query and s.embed_query_on_cpu:
+        body["options"] = {"num_gpu": 0}
+    r = _ollama_http().post("/api/embed", json=body)
     r.raise_for_status()
     return r.json()["embeddings"]
+
+
+def unload_embedding_model() -> None:
+    try:
+        _ollama_http().post("/api/embed", json={"model": get_settings().embed_model, "input": [], "keep_alive": 0})
+    except httpx.HTTPError:
+        pass
 
 
 @lru_cache
@@ -81,7 +91,7 @@ def embed_sparse(texts: list[str]) -> list[models.SparseVector]:
 
 
 def embed_query(text: str) -> tuple[list[float], models.SparseVector]:
-    dense = embed_dense([text])[0]
+    dense = embed_dense([text], query=True)[0]
     sp = next(iter(get_sparse().query_embed(text)))
     return dense, models.SparseVector(indices=sp.indices.tolist(), values=sp.values.tolist())
 

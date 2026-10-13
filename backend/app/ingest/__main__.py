@@ -18,7 +18,8 @@ def main() -> None:
         client = get_client()
         path = settings.processed_dir / "passages.jsonl"
         expected = sum(1 for _ in path.open(encoding="utf-8")) if path.exists() else 1
-        ok = client.collection_exists(PASSAGES) and client.count(PASSAGES).count >= expected
+        ok = ((settings.processed_dir / "books.jsonl").exists()
+              and client.collection_exists(PASSAGES) and client.count(PASSAGES).count >= expected)
         sys.exit(0 if ok else 1)
     t0 = time.time()
     if stage == "export":

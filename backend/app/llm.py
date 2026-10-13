@@ -31,6 +31,7 @@ async def stream_chat(messages: list[dict], model: str | None = None) -> AsyncIt
         "messages": messages,
         "stream": True,
         "think": False,
+        "keep_alive": s.ollama_keep_alive,
         "options": {"temperature": s.llm_temperature, "num_ctx": s.llm_num_ctx},
     }
     try:
@@ -55,6 +56,17 @@ async def stream_chat(messages: list[dict], model: str | None = None) -> AsyncIt
 
 async def complete(messages: list[dict], model: str | None = None) -> str:
     return "".join([t async for t in stream_chat(messages, model)])
+
+
+async def warm_up() -> None:
+    """Load the chat model into memory so the first user question does not wait for it."""
+    s = get_settings()
+    try:
+        await _http().post(f"{s.ollama_url}/api/generate", timeout=600, json={
+            "model": s.llm_model, "prompt": "", "keep_alive": s.ollama_keep_alive,
+            "options": {"num_ctx": s.llm_num_ctx}})
+    except httpx.HTTPError:
+        pass
 
 
 async def status() -> dict:

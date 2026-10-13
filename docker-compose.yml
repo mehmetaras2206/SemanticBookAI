@@ -1,19 +1,15 @@
-# docker compose up  ->  UI on http://localhost:8080
+# docker compose up  ->  UI on http://localhost:8080 (only the web UI is published; services talk internally)
 # GPU (NVIDIA):        docker compose -f docker-compose.yml -f docker-compose.gpu.yml up
 services:
   qdrant:
     image: qdrant/qdrant:v1.19.2
     volumes:
       - qdrant_data:/qdrant/storage
-    ports:
-      - "6333:6333"
 
   ollama:
     image: ollama/ollama:0.40.3
     volumes:
       - ollama_models:/root/.ollama
-    ports:
-      - "11434:11434"
 
   # one-shot helpers that pull the models into the ollama volume
   pull-embed:
@@ -47,18 +43,16 @@ services:
       LLM_MODEL: ${LLM_MODEL:-gemma4:12b}
       EMBED_MODEL: ${EMBED_MODEL:-bge-m3}
       # prebuilt index (vectors + payloads); set empty to build it locally from the books
-      INDEX_URL: ${INDEX_URL-https://github.com/mehmetaras2206/SemanticBookAI/releases/download/v1.0.0/index.tar.gz}
+      INDEX_URL: ${INDEX_URL-https://github.com/mehmetaras2206/SemanticBookAI/releases/download/index-v1/index.tar.gz}
     volumes:
       - book_data:/srv/data/processed
       - book_raw:/srv/data/raw
-    ports:
-      - "8000:8000"
 
   web:
     build: ./frontend
     depends_on: [api]
     ports:
-      - "8080:80"
+      - "${WEB_PORT:-8080}:80"
 
 volumes:
   qdrant_data:

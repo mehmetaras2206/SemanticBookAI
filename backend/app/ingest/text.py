@@ -41,7 +41,8 @@ class Chapter:
 
 def strip_gutenberg(raw: str) -> str:
     """Remove the Project Gutenberg header and license footer."""
-    text = raw.replace("\r\n", "\n").replace("\r", "\n")
+    # \r+\n also repairs files saved through a Windows text-mode write (\r\r\n)
+    text = re.sub(r"\r+\n", "\n", raw).replace("\r", "\n")
     start = _START_RE.search(text)
     if start:
         text = text[start.end():]

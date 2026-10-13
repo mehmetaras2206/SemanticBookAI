@@ -1,5 +1,7 @@
+import asyncio
 import json
 from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
 from typing import Literal
 
 from fastapi import FastAPI, HTTPException, Query
@@ -11,9 +13,24 @@ from pydantic import BaseModel, Field
 from app import llm
 from app.chat import answer_stream
 from app.config import get_settings
-from app.store import BOOKS, PASSAGES, build_filter, get_client, search
+from app.store import BOOKS, PASSAGES, build_filter, embed_query, get_client, search
 
-app = FastAPI(title="SemanticBookAI", version="1.0.0")
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    # Warm up in the background: load the embedding and chat models while the server already answers.
+    async def warm() -> None:
+        try:
+            await run_in_threadpool(embed_query, "warm-up")
+        except Exception:  # noqa: BLE001 - Ollama may still be pulling models
+            pass
+        await llm.warm_up()
+
+    task = asyncio.create_task(warm())
+    yield
+    task.cancel()
+
+
+app = FastAPI(title="SemanticBookAI", version="1.0.0", lifespan=lifespan)
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 

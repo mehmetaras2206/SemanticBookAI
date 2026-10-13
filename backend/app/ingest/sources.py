@@ -47,7 +47,7 @@ def fetch_gutendex(ids: list[int], cache: Path) -> dict[int, dict]:
 def download_text(record: dict, raw_dir: Path) -> str:
     path = raw_dir / f"{record['id']}.txt"
     if path.exists():
-        return path.read_text(encoding="utf-8")
+        return path.read_bytes().decode("utf-8", errors="replace")
     formats = record["formats"]
     url = next(
         (u for k, u in formats.items() if k.startswith("text/plain") and "utf-8" in k),
@@ -65,7 +65,7 @@ def download_text(record: dict, raw_dir: Path) -> str:
                 time.sleep(2 ** attempt)
     text = r.content.decode("utf-8", errors="replace")
     raw_dir.mkdir(parents=True, exist_ok=True)
-    path.write_text(text, encoding="utf-8")
+    path.write_bytes(r.content)  # as served: a text-mode write on Windows turns \r\n into \r\r\n
     time.sleep(1)  # be polite to gutenberg.org
     return text
 

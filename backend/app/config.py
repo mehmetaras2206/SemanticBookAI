@@ -16,6 +16,9 @@ class Settings(BaseSettings):
     qdrant_path: Path = ROOT_DIR / "data" / "qdrant"
 
     embed_model: str = "bge-m3"  # dense embeddings, served by Ollama
+    # Query embeddings on the CPU (~35 ms) keep the GPU free for the LLM, so Ollama does not swap models.
+    embed_query_on_cpu: bool = True
+    ollama_keep_alive: str = "1h"
     sparse_model: str = "Qdrant/bm25"
 
     ollama_url: str = "http://127.0.0.1:11434"

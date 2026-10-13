@@ -13,7 +13,7 @@
    "chapter_recall@5": 0.667,
    "evidence_recall@5": 0.583,
    "mrr@10": 0.979,
-   "p50_ms": 4713.117849999435,
+   "p50_ms": 88.52565000051982,
    "per_question": [
     {
      "id": "en-ahab",
@@ -22,7 +22,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 6705.358999999589
+     "ms": 10231.344899999385
     },
     {
      "id": "en-ishmael",
@@ -31,7 +31,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 8256.827699999121
+     "ms": 189.09869999879447
     },
     {
      "id": "en-creature",
@@ -40,7 +40,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 7925.3587999992305
+     "ms": 365.8795999999711
     },
     {
      "id": "en-mad",
@@ -49,7 +49,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4696.428399998695
+     "ms": 320.64339999851654
     },
     {
      "id": "en-adler",
@@ -58,7 +58,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4742.487999999867
+     "ms": 234.39629999847966
     },
     {
      "id": "en-demeter",
@@ -67,7 +67,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 7907.010200000514
+     "ms": 148.3566000006249
     },
     {
      "id": "en-portrait",
@@ -76,7 +76,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4685.596399998758
+     "ms": 213.03809999881196
     },
     {
      "id": "en-morlocks",
@@ -85,7 +85,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4702.412299999196
+     "ms": 111.88089999996009
     },
     {
      "id": "en-bacteria",
@@ -94,7 +94,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4721.9537000000855
+     "ms": 78.38290000108827
     },
     {
      "id": "en-carton",
@@ -103,7 +103,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 8275.013700000272
+     "ms": 87.7531000005547
     },
     {
      "id": "en-tolerable",
@@ -112,7 +112,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4745.850700001029
+     "ms": 112.42549999951734
     },
     {
      "id": "en-spirits",
@@ -121,7 +121,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4688.884000001053
+     "ms": 77.91269999870565
     },
     {
      "id": "en-jim",
@@ -130,7 +130,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4700.155599999562
+     "ms": 63.23979999979201
     },
     {
      "id": "en-parrot",
@@ -139,7 +139,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 0.5,
-     "ms": 4715.37890000036
+     "ms": 89.29820000048494
     },
     {
      "id": "en-green",
@@ -148,7 +148,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4698.0965999991895
+     "ms": 90.63120000064373
     },
     {
      "id": "en-horror",
@@ -157,7 +157,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 7759.612099998776
+     "ms": 124.19450000015786
     },
     {
      "id": "en-vasudeva",
@@ -166,7 +166,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4769.074800000453
+     "ms": 66.264000000956
     },
     {
      "id": "de-gregor",
@@ -175,7 +175,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4728.505199998835
+     "ms": 53.684700000303565
     },
     {
      "id": "de-wette",
@@ -184,7 +184,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4694.09689999884
+     "ms": 56.839599999875645
     },
     {
      "id": "de-verleumdet",
@@ -193,7 +193,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4710.85679999851
+     "ms": 71.43599999835715
     },
     {
      "id": "de-innstetten",
@@ -202,7 +202,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4682.603900000686
+     "ms": 53.06890000065323
     },
     {
      "id": "de-uebermensch",
@@ -211,7 +211,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4702.931699999681
+     "ms": 49.63970000062545
     },
     {
      "id": "de-hauke",
@@ -220,7 +220,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4687.24789999942
+     "ms": 43.65209999923536
     },
     {
      "id": "de-lotte",
@@ -229,7 +229,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4682.648600000903
+     "ms": 35.959700000603334
     }
    ]
   },
@@ -239,7 +239,7 @@
    "chapter_recall@5": 0.625,
    "evidence_recall@5": 0.375,
    "mrr@10": 0.854,
-   "p50_ms": 4695.606299999781,
+   "p50_ms": 28.82445000068401,
    "per_question": [
     {
      "id": "en-ahab",
@@ -248,7 +248,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4763.904100000218
+     "ms": 28.567400000611087
     },
     {
      "id": "en-ishmael",
@@ -257,7 +257,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4701.317300001392
+     "ms": 50.73179999999411
     },
     {
      "id": "en-creature",
@@ -266,7 +266,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4687.156399999367
+     "ms": 32.09520000018529
     },
     {
      "id": "en-mad",
@@ -275,7 +275,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4706.667500000549
+     "ms": 31.93979999923613
     },
     {
      "id": "en-adler",
@@ -284,7 +284,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4690.775900000517
+     "ms": 28.394199998729164
     },
     {
      "id": "en-demeter",
@@ -293,7 +293,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 0.3333333333333333,
-     "ms": 4672.988799999075
+     "ms": 28.97110000048997
     },
     {
      "id": "en-portrait",
@@ -302,7 +302,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4751.1193999998795
+     "ms": 35.48449999834702
     },
     {
      "id": "en-morlocks",
@@ -311,7 +311,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 0.16666666666666666,
-     "ms": 4723.797700000432
+     "ms": 28.99290000095789
     },
     {
      "id": "en-bacteria",
@@ -320,7 +320,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4707.637800000157
+     "ms": 34.39930000058666
     },
     {
      "id": "en-carton",
@@ -329,7 +329,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4697.95559999875
+     "ms": 28.464699998949072
     },
     {
      "id": "en-tolerable",
@@ -338,7 +338,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4711.303199999747
+     "ms": 37.80139999980747
     },
     {
      "id": "en-spirits",
@@ -347,7 +347,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4750.358600000254
+     "ms": 29.97700000014447
     },
     {
      "id": "en-jim",
@@ -356,7 +356,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4732.402400000865
+     "ms": 24.658899999849382
     },
     {
      "id": "en-parrot",
@@ -365,7 +365,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4672.346100000141
+     "ms": 26.97489999991376
     },
     {
      "id": "en-green",
@@ -374,7 +374,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4689.536000001681
+     "ms": 31.78509999997914
     },
     {
      "id": "en-horror",
@@ -383,7 +383,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4653.327899999567
+     "ms": 29.943999999886728
     },
     {
      "id": "en-vasudeva",
@@ -392,7 +392,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 0.0,
-     "ms": 4693.257000000813
+     "ms": 34.411000000545755
     },
     {
      "id": "de-gregor",
@@ -401,7 +401,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4669.988300000114
+     "ms": 28.11420000034559
     },
     {
      "id": "de-wette",
@@ -410,7 +410,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4701.639299999442
+     "ms": 28.398300000844756
     },
     {
      "id": "de-verleumdet",
@@ -419,7 +419,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4659.568099999888
+     "ms": 27.899900000193156
     },
     {
      "id": "de-innstetten",
@@ -428,7 +428,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4661.19819999949
+     "ms": 28.67780000087805
     },
     {
      "id": "de-uebermensch",
@@ -437,7 +437,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 4765.657599999031
+     "ms": 27.656000000206404
     },
     {
      "id": "de-hauke",
@@ -446,7 +446,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 4679.38839999988
+     "ms": 26.590699999360368
     },
     {
      "id": "de-lotte",
@@ -455,7 +455,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 0.0,
-     "ms": 4671.405700000832
+     "ms": 27.05710000009276
     }
    ]
   },
@@ -465,7 +465,7 @@
    "chapter_recall@5": 0.875,
    "evidence_recall@5": 0.542,
    "mrr@10": 1.0,
-   "p50_ms": 6733.135800001037,
+   "p50_ms": 52.63420000028418,
    "per_question": [
     {
      "id": "en-ahab",
@@ -474,7 +474,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 6724.992600000405
+     "ms": 53.650400001060916
     },
     {
      "id": "en-ishmael",
@@ -483,7 +483,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 6724.594999999681
+     "ms": 57.27630000001227
     },
     {
      "id": "en-creature",
@@ -492,7 +492,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 6792.937299998812
+     "ms": 59.07680000018445
     },
     {
      "id": "en-mad",
@@ -501,7 +501,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 6831.893799999307
+     "ms": 58.00439999984519
     },
     {
      "id": "en-adler",
@@ -510,7 +510,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6767.432499998904
+     "ms": 63.505100000838866
     },
     {
      "id": "en-demeter",
@@ -519,7 +519,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 6735.65790000066
+     "ms": 54.3868000004295
     },
     {
      "id": "en-portrait",
@@ -528,7 +528,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 6772.607999999309
+     "ms": 58.90879999969911
     },
     {
      "id": "en-morlocks",
@@ -537,7 +537,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6710.434099999475
+     "ms": 51.92370000077062
     },
     {
      "id": "en-bacteria",
@@ -546,7 +546,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6703.45670000097
+     "ms": 68.87509999978647
     },
     {
      "id": "en-carton",
@@ -555,7 +555,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 6791.883699999744
+     "ms": 47.07379999854311
     },
     {
      "id": "en-tolerable",
@@ -564,7 +564,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 6748.7767999991775
+     "ms": 45.59930000141321
     },
     {
      "id": "en-spirits",
@@ -573,7 +573,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6742.216200000257
+     "ms": 46.73670000011043
     },
     {
      "id": "en-jim",
@@ -582,7 +582,7 @@
      "chapter@5": false,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 6707.16899999934
+     "ms": 77.68409999880532
     },
     {
      "id": "en-parrot",
@@ -591,7 +591,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6698.978700000225
+     "ms": 47.766899999260204
     },
     {
      "id": "en-green",
@@ -600,7 +600,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6714.953400000013
+     "ms": 46.20009999962349
     },
     {
      "id": "en-horror",
@@ -609,7 +609,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6715.118900001471
+     "ms": 46.59410000022035
     },
     {
      "id": "en-vasudeva",
@@ -618,7 +618,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6726.15500000029
+     "ms": 65.76080000013462
     },
     {
      "id": "de-gregor",
@@ -627,7 +627,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6709.305699998367
+     "ms": 43.52210000070045
     },
     {
      "id": "de-wette",
@@ -636,7 +636,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6723.63039999982
+     "ms": 58.24910000046657
     },
     {
      "id": "de-verleumdet",
@@ -645,7 +645,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6730.613700001413
+     "ms": 53.34469999979774
     },
     {
      "id": "de-innstetten",
@@ -654,7 +654,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6747.03640000007
+     "ms": 49.18069999985164
     },
     {
      "id": "de-uebermensch",
@@ -663,7 +663,7 @@
      "chapter@5": true,
      "evidence@5": true,
      "mrr": 1.0,
-     "ms": 6775.627400000303
+     "ms": 49.11030000039318
     },
     {
      "id": "de-hauke",
@@ -672,7 +672,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 6749.614099999235
+     "ms": 46.67119999976421
     },
     {
      "id": "de-lotte",
@@ -681,7 +681,7 @@
      "chapter@5": true,
      "evidence@5": false,
      "mrr": 1.0,
-     "ms": 6790.494099999705
+     "ms": 51.226699999460834
     }
    ]
   }
@@ -690,13 +690,13 @@
   "dense": {
    "recall@5": 1.0,
    "mrr@10": 0.861,
-   "p50_ms": 4733.7585000004765,
+   "p50_ms": 31.408099999680417,
    "per_query": [
     {
      "id": "cat-neverland",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 4783.563700000741,
+     "ms": 47.717999999804306,
      "top3": [
       "Peter Pan",
       "Oliver Twist",
@@ -707,7 +707,7 @@
      "id": "cat-familie",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 4740.849699999671,
+     "ms": 31.023300000015297,
      "top3": [
       "Buddenbrooks",
       "Oliver Twist",
@@ -718,7 +718,7 @@
      "id": "cat-creation",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 7370.700299999953,
+     "ms": 43.33770000084769,
      "top3": [
       "Frankenstein",
       "Die Verwandlung",
@@ -729,7 +729,7 @@
      "id": "cat-vampire",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 4709.89340000051,
+     "ms": 28.384799999912502,
      "top3": [
       "Dracula",
       "Frankenstein",
@@ -740,7 +740,7 @@
      "id": "cat-detective",
      "recall@5": true,
      "mrr": 0.25,
-     "ms": 4733.7585000004765,
+     "ms": 38.23769999871729,
      "top3": [
       "The strange case of Dr. Jekyll and Mr. Hyde",
       "Dracula",
@@ -751,7 +751,7 @@
      "id": "cat-ruler",
      "recall@5": true,
      "mrr": 0.5,
-     "ms": 4744.6319999999105,
+     "ms": 31.205199999021715,
      "top3": [
       "The Republic",
       "The Prince",
@@ -762,7 +762,7 @@
      "id": "cat-stoa",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 4727.6312000012695,
+     "ms": 31.408099999680417,
      "top3": [
       "Meditations",
       "Selbstbetrachtungen",
@@ -773,7 +773,7 @@
      "id": "cat-whale",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 4693.7765999991825,
+     "ms": 43.883599999389844,
      "top3": [
       "Moby Dick",
       "Treasure Island",
@@ -784,7 +784,7 @@
      "id": "cat-ehe",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 4701.627500000541,
+     "ms": 29.958600000099977,
      "top3": [
       "Effi Briest",
       "Emma",
@@ -796,13 +796,13 @@
   "sparse": {
    "recall@5": 0.778,
    "mrr@10": 0.683,
-   "p50_ms": 4705.899799999315,
+   "p50_ms": 25.58550000139803,
    "per_query": [
     {
      "id": "cat-neverland",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 4713.240900000528,
+     "ms": 27.709699999832083,
      "top3": [
       "Peter Pan",
       "Oliver Twist",
@@ -813,7 +813,7 @@
      "id": "cat-familie",
      "recall@5": true,
      "mrr": 0.5,
-     "ms": 4693.377300000066,
+     "ms": 25.452399999267072,
      "top3": [
       "Die Elixiere des Teufels",
       "Buddenbrooks",
@@ -824,7 +824,7 @@
      "id": "cat-creation",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 4724.603200000274,
+     "ms": 25.9371000011015,
      "top3": [
       "Frankenstein",
       "Emma",
@@ -835,7 +835,7 @@
      "id": "cat-vampire",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 4711.70450000136,
+     "ms": 24.21130000038829,
      "top3": [
       "Dracula"
      ]
@@ -844,7 +844,7 @@
      "id": "cat-detective",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 4688.371799999004,
+     "ms": 25.58550000139803,
      "top3": [
       "The Hound of the Baskervilles",
       "A Tale of Two Cities",
@@ -855,7 +855,7 @@
      "id": "cat-ruler",
      "recall@5": true,
      "mrr": 0.5,
-     "ms": 4704.682300000059,
+     "ms": 24.61590000166325,
      "top3": [
       "The Republic",
       "The Prince",
@@ -866,7 +866,7 @@
      "id": "cat-stoa",
      "recall@5": false,
      "mrr": 0.14285714285714285,
-     "ms": 4778.989599999477,
+     "ms": 32.34899999915797,
      "top3": [
       "Siddhartha",
       "Also sprach Zarathustra",
@@ -877,7 +877,7 @@
      "id": "cat-whale",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 4684.5331999993505,
+     "ms": 24.01599999939208,
      "top3": [
       "Moby Dick",
       "Gulliver's Travels into Several Remote Nations of the World",
@@ -888,7 +888,7 @@
      "id": "cat-ehe",
      "recall@5": false,
      "mrr": 0.0,
-     "ms": 4705.899799999315,
+     "ms": 25.841699998636614,
      "top3": [
       "Buddenbrooks",
       "Venus im Pelz",
@@ -900,13 +900,13 @@
   "hybrid": {
    "recall@5": 1.0,
    "mrr@10": 0.806,
-   "p50_ms": 6749.647599999662,
+   "p50_ms": 34.43820000029518,
    "per_query": [
     {
      "id": "cat-neverland",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 6797.2286000003805,
+     "ms": 35.88090000084776,
      "top3": [
       "Peter Pan",
       "Oliver Twist",
@@ -917,7 +917,7 @@
      "id": "cat-familie",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 6746.414299999742,
+     "ms": 68.05369999892719,
      "top3": [
       "Buddenbrooks",
       "Aus dem Leben eines Taugenichts",
@@ -928,7 +928,7 @@
      "id": "cat-creation",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 6726.8242000009195,
+     "ms": 34.43820000029518,
      "top3": [
       "Frankenstein",
       "The Great Gatsby",
@@ -939,7 +939,7 @@
      "id": "cat-vampire",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 6751.593500001036,
+     "ms": 32.75680000115244,
      "top3": [
       "Dracula",
       "Frankenstein",
@@ -950,7 +950,7 @@
      "id": "cat-detective",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 6743.333899999925,
+     "ms": 32.71110000059707,
      "top3": [
       "The Hound of the Baskervilles",
       "A Tale of Two Cities",
@@ -961,7 +961,7 @@
      "id": "cat-ruler",
      "recall@5": true,
      "mrr": 0.5,
-     "ms": 6733.042699999714,
+     "ms": 38.400600000386476,
      "top3": [
       "The Republic",
       "The Prince",
@@ -972,7 +972,7 @@
      "id": "cat-stoa",
      "recall@5": true,
      "mrr": 0.5,
-     "ms": 6749.647599999662,
+     "ms": 33.82100000089849,
      "top3": [
       "Also sprach Zarathustra",
       "Selbstbetrachtungen",
@@ -983,7 +983,7 @@
      "id": "cat-whale",
      "recall@5": true,
      "mrr": 1.0,
-     "ms": 6779.169400000683,
+     "ms": 36.16959999999381,
      "top3": [
       "Moby Dick",
       "Venus im Pelz",
@@ -994,7 +994,7 @@
      "id": "cat-ehe",
      "recall@5": true,
      "mrr": 0.25,
-     "ms": 6764.749200001461,
+     "ms": 32.023200001276564,
      "top3": [
       "Buddenbrooks",
       "Deutsche Märchen gesammelt durch die Brüder Grimm",
@@ -1002,6 +1002,1329 @@
      ]
     }
    ]
+  }
+ },
+ "judge_model": "gemma4:12b",
+ "answers": {
+  "qwen3.5:4b": {
+   "citation_validity": 1.0,
+   "answers_with_citation": 1.0,
+   "cites_gold_book": 1.0,
+   "unanswerable_refused": "3/3",
+   "false_refusals": "7/24",
+   "faithfulness": 0.971,
+   "correctness": 0.794,
+   "p50_ttft_s": 0.42,
+   "p50_tokens_per_s": 141.0,
+   "per_question": [
+    {
+     "id": "en-ahab",
+     "answerable": true,
+     "refused": false,
+     "answer": "Captain Ahab hunts the White Whale because he has found an awful motive for his vengeance there [3]. He sailed upon this voyage with the one only and all-engrossing object of hunting the White Whale, driven by a mad secret of unabated rage [4]. The text describes him as having discovered the specific reason for his revenge at a tragic spot where deadly encounters had occurred [3].",
+     "citations": [
+      3,
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.39,
+     "tokens_per_s": 141.0,
+     "latency_s": 0.95,
+     "faithfulness": 1,
+     "correctness": 0.5,
+     "reason": "The assistant correctly identifies the motive as 'vengeance' and 'unabated rage' from the text, but it does not mention the specific detail (the loss of his leg) provided in the reference answer."
+    },
+    {
+     "id": "en-ishmael",
+     "answerable": true,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "en-creature",
+     "answerable": true,
+     "refused": false,
+     "answer": "The Creature demands a female companion to accompany him into exile [4]. He insists on an oath that he will never return to Europe or any place near humanity once Victor delivers this woman [4]. Victor agrees to this request after reflecting on the Creature's past suffering and his own moral obligations [3].",
+     "citations": [
+      4,
+      3
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.37,
+     "tokens_per_s": 143.3,
+     "latency_s": 0.79,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies the demand for a female companion and the associated conditions from the provided sources."
+    },
+    {
+     "id": "en-mad",
+     "answerable": true,
+     "refused": false,
+     "answer": "The Cheshire Cat tells Alice that everyone in the area is mad because they are all there. It states, \"we're all mad here. I'm mad. You're mad\" [6]. When asked how it knows she is mad, the Cat replies, \"or you wouldn't have come here\" [6]. The Cat also explains its own madness by noting that it growsls when pleased and wags its tail when angry, which is the opposite of a normal dog's behavior [3].",
+     "citations": [
+      6,
+      3
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.42,
+     "tokens_per_s": 147.2,
+     "latency_s": 1.1,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant accurately identifies the Cat's claims about madness and provides supporting evidence from the text."
+    },
+    {
+     "id": "en-adler",
+     "answerable": true,
+     "refused": false,
+     "answer": "In *A Scandal in Bohemia*, Irene Adler is the woman who outwits Sherlock Holmes [1]. The text notes that her cleverness was so great that it \"beaten\" Holmes's best plans [1]. Although Holmes initially made merry over women's wit, he later referred to her under the \"honourable title of the woman\" [1]. Her success is confirmed when she sends a letter from her new husband, Irene Norton, and Holmes admits she was on a different level than the King [5].",
+     "citations": [
+      1,
+      5
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.36,
+     "tokens_per_s": 144.3,
+     "latency_s": 1.1,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies Irene Adler as the one who outwits Holmes, citing specific details from the provided sources."
+    },
+    {
+     "id": "en-demeter",
+     "answerable": true,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "en-portrait",
+     "answerable": true,
+     "refused": false,
+     "answer": "As Dorian commits sins, a stain flecks and wrecks the fairness of his portrait [1]. The foulness and horror come from within, slowly eating the thing away through a strange quickening of inner life [2]. Every sin that he commits adds to the decay of the painted image, which serves as the visible emblem of his conscience [1].",
+     "citations": [
+      1,
+      2
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.39,
+     "tokens_per_s": 139.5,
+     "latency_s": 0.9,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant accurately identifies that the portrait bears the stains of his sins and decays internally as described in the sources."
+    },
+    {
+     "id": "en-morlocks",
+     "answerable": true,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "en-bacteria",
+     "answerable": true,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "en-carton",
+     "answerable": true,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "en-tolerable",
+     "answerable": true,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "en-spirits",
+     "answerable": true,
+     "refused": false,
+     "answer": "Marley states that Scrooge will be haunted by three spirits [1].",
+     "citations": [
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.45,
+     "tokens_per_s": 136.1,
+     "latency_s": 0.56,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identified that Marley states Scrooge will be haunted by three spirits, citing source [1]."
+    },
+    {
+     "id": "en-jim",
+     "answerable": true,
+     "refused": false,
+     "answer": "Huck Finn travels down the river on the raft with Jim [1]. They are joined by Pap, Ike, and others at different points during their journey [3]. Later, they travel with the Duke, the King, and Grangerfield [2][4].",
+     "citations": [
+      1,
+      3,
+      2,
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.4,
+     "tokens_per_s": 142.6,
+     "latency_s": 0.78,
+     "faithfulness": 0.5,
+     "correctness": 1,
+     "reason": "The assistant incorrectly claims Pap and Ike were on the raft with them, whereas source [3] states they drowned in a steamboat accident."
+    },
+    {
+     "id": "en-parrot",
+     "answerable": true,
+     "refused": false,
+     "answer": "Long John Silver's parrot keeps screaming \"Pieces of eight!\" [1]. The bird also screams \"Stand by to go about\" and swears straight on, passing belief for wickedness [4].",
+     "citations": [
+      1,
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.42,
+     "tokens_per_s": 135.8,
+     "latency_s": 0.72,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies the primary refrain from source [1] and includes additional behaviors mentioned in source [4]."
+    },
+    {
+     "id": "en-green",
+     "answerable": true,
+     "refused": false,
+     "answer": "Gatsby points across the bay to where he is located, stating, \"I'm right across from you\" [1]. He also describes seeing a green light that burns all night at the end of Daisy's dock [2].",
+     "citations": [
+      1,
+      2
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.4,
+     "tokens_per_s": 140.0,
+     "latency_s": 0.73,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies both the action of pointing across the bay and the specific detail of the green light mentioned in the text."
+    },
+    {
+     "id": "en-horror",
+     "answerable": true,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "en-vasudeva",
+     "answerable": true,
+     "refused": false,
+     "answer": "The ferryman who teaches Siddhartha is Vasudeva [5]. Govinda also recognizes him as the man who once found a sleeping figure by the river [1].",
+     "citations": [
+      5,
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.43,
+     "tokens_per_s": 135.5,
+     "latency_s": 0.69,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies Vasudeva as the ferryman and provides supporting evidence from the text."
+    },
+    {
+     "id": "de-gregor",
+     "answerable": true,
+     "refused": false,
+     "answer": "Gregor Samsa erwachte eines Morgens zu einem ungeheueren Ungeziefer [1]. Er lag auf seinem panzerartig harten Rücken und sah seinen gewölbten, braunen Bauch mit bogenförmigen Versteifungen [1]. Seine vielen, im Vergleich zu seinem sonstigen Umfang kläglich dünnen Beine flimmerten ihm hilflos vor den Augen [1].",
+     "citations": [
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.42,
+     "tokens_per_s": 138.6,
+     "latency_s": 1.05,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies that Gregor Samsa transformed into a 'ungeheueren Ungeziefer' based on source [1]."
+    },
+    {
+     "id": "de-wette",
+     "answerable": true,
+     "refused": false,
+     "answer": "Faust wettet mit Mephistopheles darauf, dass er die schöne Gretchen schmeichelnd belügen kann, ohne sich selbst zu gefallen [1]. Er erklärt, dass dies für ihn der letzte Tag wäre und bietet den Teufel an, ihn in Fesseln zu schlagen, wenn er dies schafft [1].",
+     "citations": [
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.44,
+     "tokens_per_s": 141.8,
+     "latency_s": 0.92,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant incorrectly interprets the text; Faust is asking Mephistopheles to lie to him, while the actual wager is that Mephistopheles can claim Faust's soul if he ever says 'Verweile doch! du bist so schön!'."
+    },
+    {
+     "id": "de-verleumdet",
+     "answerable": true,
+     "refused": false,
+     "answer": "Josef K. wurde verhaftet, weil jemand ihn verleumdet hat [1]. Die Passage stellt fest, dass er ohne etwas Böses getan zu haben, eines Morgens verhaftet wurde [1]. Es wird jedoch nicht näher ausgeführt, wer die Leumderei verbreitet oder welche konkreten Gründe dafür sprechen [1].",
+     "citations": [
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.42,
+     "tokens_per_s": 141.3,
+     "latency_s": 0.9,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies that the reason is unclear and attributes it to slander as stated in the source."
+    },
+    {
+     "id": "de-innstetten",
+     "answerable": true,
+     "refused": false,
+     "answer": "Effi Briest heiratet Baron Innstetten [4]. Die Verlobung fand am selben Tag statt, an dem sie verheiratet werden sollte [4]. Sie wird somit die Ehefrau von Baron Innstetten sein [3].",
+     "citations": [
+      4,
+      3
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.42,
+     "tokens_per_s": 139.9,
+     "latency_s": 0.78,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies Baron Innstetten as the groom based on the provided sources."
+    },
+    {
+     "id": "de-uebermensch",
+     "answerable": true,
+     "refused": false,
+     "answer": "Zarathustra lehrt die Menschen den Übermenschen, da sie ihn überwinden sollen [2]. Er sagt ihnen, dass der Pöbel auf dem Markt glaubt, es gäbe keine höheren Menschen und alle seien gleich [1]. Zudem will er den Menschen das Sinn ihres Seins lehren, indem er ihnen den Blitz aus der dunklen Wolke Mensch zeigt [4].",
+     "citations": [
+      2,
+      1,
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.43,
+     "tokens_per_s": 141.9,
+     "latency_s": 1.0,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies the primary teaching from source [2] and adds relevant context from sources [1] and [4]."
+    },
+    {
+     "id": "de-hauke",
+     "answerable": true,
+     "refused": false,
+     "answer": "Der Text nennt den Charakter nicht mit einem anderen Namen als „Deichgraf\" [1]. Er wird auch nur als „der Schulmeister\" bezeichnet, wenn er von dem kleinen hageren Mann gesprochen wird, der ihm unterstellt ist [4]. Es gibt keine weitere Bezeichnung für die Person selbst im vorliegenden Material.",
+     "citations": [
+      1,
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.44,
+     "tokens_per_s": 140.0,
+     "latency_s": 0.91,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant correctly identifies that the name is not in the text, but the reference answer provides the name from external knowledge which is not present in the sources."
+    },
+    {
+     "id": "de-lotte",
+     "answerable": true,
+     "refused": false,
+     "answer": "Werther verliebt sich in die arme Leonore [1]. Er fühlt eine Leidenschaft, die sich im armen Herzen bildet, während seine Schwester ihn unterhält [1]. Er weiß nicht ganz, ob er unschuldig ist, da er ihre Empfindungen genährt hat [1].",
+     "citations": [
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.44,
+     "tokens_per_s": 144.0,
+     "latency_s": 0.85,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant incorrectly identifies Leonore as the object of Werther's love based on a misinterpretation of the text, whereas the reference answer correctly identifies Lotte."
+    },
+    {
+     "id": "na-australia",
+     "answerable": false,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "na-worldcup",
+     "answerable": false,
+     "refused": true,
+     "reason": "no_relevant_sources",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "na-potter",
+     "answerable": false,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "Dazu finde ich in den Büchern dieser Bibliothek keine Belege."
+    }
+   ],
+   "answer_rate_correct": 0.562
+  },
+  "gemma4:e4b": {
+   "citation_validity": 1.0,
+   "answers_with_citation": 1.0,
+   "cites_gold_book": 1.0,
+   "unanswerable_refused": "3/3",
+   "false_refusals": "4/24",
+   "faithfulness": 1.0,
+   "correctness": 0.7,
+   "p50_ttft_s": 0.42,
+   "p50_tokens_per_s": 160.45,
+   "per_question": [
+    {
+     "id": "en-ahab",
+     "answerable": true,
+     "refused": false,
+     "answer": "Ahab purposely sailed on the current voyage with the sole and all-engrossing objective of hunting the White Whale [4]. In his cautious and vigilant hunt, Ahab would not allow himself to rely solely on the one crowning fact mentioned, even if it flattered his hopes [3]. Ahab was intent on an audacious, immitigable, and supernatural pursuit [4].",
+     "citations": [
+      4,
+      3
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.6,
+     "tokens_per_s": 173.7,
+     "latency_s": 1.02,
+     "faithfulness": 1,
+     "correctness": 0.5,
+     "reason": "The assistant correctly identifies Ahab's intent and the nature of his hunt from the text, but fails to mention the specific motive (revenge for his leg) provided in the reference answer."
+    },
+    {
+     "id": "en-ishmael",
+     "answerable": true,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "en-creature",
+     "answerable": true,
+     "refused": false,
+     "answer": "The creature demands a creature of a certain nature from Victor [2]. After reflecting on the creature's arguments and the scorn shown by his protectors, the narrator concluded that compliance with the creature's request was demanded by justice for both him and other creatures [3][4]. The narrator then consented to the demand, provided the creature swore to leave Europe and all neighboring human areas [4]. This consent was given in exchange for the narrator delivering a female to the creature to accompany him in his exile [4].",
+     "citations": [
+      2,
+      3,
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.42,
+     "tokens_per_s": 142.3,
+     "latency_s": 1.15,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies that the creature demands a female companion, supported by the text in sources [2], [3], and [4]."
+    },
+    {
+     "id": "en-mad",
+     "answerable": true,
+     "refused": false,
+     "answer": "The Cheshire Cat states that \"we're all mad here,\" including himself and Alice [6]. When Alice asks how he knows he is mad, he replies that she must be mad if she came there [6]. Furthermore, he claims that \"a dog’s not mad\" to begin with [3]. He explains his own madness by saying that while a dog growls when angry and wags its tail when pleased, he growsl when pleased and wags his tail when angry [3].",
+     "citations": [
+      6,
+      3
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.42,
+     "tokens_per_s": 165.5,
+     "latency_s": 1.03,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies the Cat's claims about madness and provides supporting evidence from the provided sources."
+    },
+    {
+     "id": "en-adler",
+     "answerable": true,
+     "refused": false,
+     "answer": "A woman's wit caused the best plans of Mr. Sherlock Holmes to be beaten, leading to a great scandal threatening the kingdom of Bohemia [1]. This woman is Irene Adler [1]. The King of Bohemia exclaimed, \"What a woman—oh, what a woman!\" after reading a letter from her [5].",
+     "citations": [
+      1,
+      5
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.37,
+     "tokens_per_s": 152.4,
+     "latency_s": 0.8,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies Irene Adler as the woman whose wit defeated Holmes, citing the provided sources."
+    },
+    {
+     "id": "en-demeter",
+     "answerable": true,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "en-portrait",
+     "answerable": true,
+     "refused": false,
+     "answer": "For every sin Dorian committed, a stain would \"fleck and wreck its fairness\" [1]. The portrait was meant to be the visible emblem of conscience for him [1]. When examined, the surface of the portrait seemed undisturbed, but the \"leprosies of sin were slowly eating the thing away\" from within [2].",
+     "citations": [
+      1,
+      2
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.42,
+     "tokens_per_s": 166.5,
+     "latency_s": 0.82,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies that the portrait bears the marks of his sins from within while the surface remains undisturbed."
+    },
+    {
+     "id": "en-morlocks",
+     "answerable": true,
+     "refused": false,
+     "answer": "The Time Traveller thought of the \"Great Fear that was between the two species\" [5]. He also saw a slight creature running through the bushes by the White Sphinx [6].",
+     "citations": [
+      5,
+      6
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.59,
+     "tokens_per_s": 177.2,
+     "latency_s": 0.8,
+     "faithfulness": 1,
+     "correctness": 0.5,
+     "reason": "The assistant correctly identifies the mention of two species and a slight creature, but fails to name the Eloi as the second species."
+    },
+    {
+     "id": "en-bacteria",
+     "answerable": true,
+     "refused": false,
+     "answer": "The sources mention that the Martians fell at Woking [2]. Furthermore, the Martians seem incapable of moving from the pit into which they have fallen [2]. The text also notes that no bacteria other than those already known as terrestrial species were found in the bodies of the Martians examined after the war [3][4].",
+     "citations": [
+      2,
+      3,
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.4,
+     "tokens_per_s": 165.3,
+     "latency_s": 0.81,
+     "faithfulness": 1,
+     "correctness": 0.5,
+     "reason": "The assistant correctly identifies the lack of non-terrestrial bacteria in Martian bodies but fails to explicitly state that this lack of immunity to earthly bacteria was the cause of their death."
+    },
+    {
+     "id": "en-carton",
+     "answerable": true,
+     "refused": false,
+     "answer": "The provided passages mention Charles Evrémonde, called Darnay, being called out at La Force [2], and that his name was called before fifteen prisoners were put to the bar [3]. Furthermore, the list read by the gaoler included twenty-three names, but only twenty were responded to, as one prisoner had died in gaol and two had already been guillotined [5]. However, the sources do not state who takes Charles Darnay's place at the guillotine.",
+     "citations": [
+      2,
+      3,
+      5
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.41,
+     "tokens_per_s": 179.6,
+     "latency_s": 0.97,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant correctly identifies that the provided sources do not contain the answer, even though the reference answer is correct based on external knowledge."
+    },
+    {
+     "id": "en-tolerable",
+     "answerable": true,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "en-spirits",
+     "answerable": true,
+     "refused": false,
+     "answer": "The Ghost tells Scrooge that he \"will be haunted... by Three Spirits\" [1].",
+     "citations": [
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.4,
+     "tokens_per_s": 174.4,
+     "latency_s": 0.51,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identified the number of spirits from the provided text."
+    },
+    {
+     "id": "en-jim",
+     "answerable": true,
+     "refused": false,
+     "answer": "Jim was on the raft with Huck Finn [1]. Jim was asleep on the raft when Huck got to it [1]. Jim was with Huck on the raft when they were traveling down the river [3].",
+     "citations": [
+      1,
+      3
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.37,
+     "tokens_per_s": 161.4,
+     "latency_s": 0.63,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies Jim as the person on the raft with Huck Finn based on the provided sources."
+    },
+    {
+     "id": "en-parrot",
+     "answerable": true,
+     "refused": false,
+     "answer": "The parrot would scream, \"Stand by to go about\" [4].",
+     "citations": [
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.5,
+     "tokens_per_s": 139.8,
+     "latency_s": 0.61,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant correctly identified a phrase the parrot screams in source [4], but it failed to identify the primary refrain mentioned in source [1] which matches the reference answer."
+    },
+    {
+     "id": "en-green",
+     "answerable": true,
+     "refused": false,
+     "answer": "Gatsby's eyes followed a small sail crawling slowly toward the fresher sea on the green Sound [1]. Later, Gatsby pointed across the bay, saying, \"I’m right across from you\" [1]. Gatsby also noted that Daisy always has a green light burning all night at the end of her dock across the bay [2].",
+     "citations": [
+      1,
+      2
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.36,
+     "tokens_per_s": 180.9,
+     "latency_s": 0.74,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies both the boat and the green light mentioned in the text, aligning with the reference answer."
+    },
+    {
+     "id": "en-horror",
+     "answerable": true,
+     "refused": false,
+     "answer": "Kurtz's cry was an affirmation, described as a \"moral victory\" [2]. He had summed up and judged, with the expression, \"The horror!\" [4]. Furthermore, the disinterred body of Mr. Kurtz was heard saying, \"My Intended\" [5].",
+     "citations": [
+      2,
+      4,
+      5
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.44,
+     "tokens_per_s": 179.2,
+     "latency_s": 0.78,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies 'The horror!' as the summary/judgment and includes the detail about 'My Intended' from the text."
+    },
+    {
+     "id": "en-vasudeva",
+     "answerable": true,
+     "refused": false,
+     "answer": "Siddhartha stayed with the ferryman and learned to operate the boat [5]. The river taught him more than Vasudeva could teach him [5]. Some few people have stopped seeing the river as an obstacle and have listened to its voice, just as it became holy to Siddhartha [5].",
+     "citations": [
+      5
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.41,
+     "tokens_per_s": 155.1,
+     "latency_s": 0.8,
+     "faithfulness": 1,
+     "correctness": 0.5,
+     "reason": "The assistant correctly identifies that Siddhartha learned from both the ferryman and Vasudeva, but it fails to explicitly name Vasudeva as the ferryman in the final answer."
+    },
+    {
+     "id": "de-gregor",
+     "answerable": true,
+     "refused": false,
+     "answer": "Gregor Samsa verwandelt sich in ein ungeheueres Ungeziefer [1]. In englischer Übersetzung findet er sich in seinem Bett in ein schreckliches Ungeziefer verwandelt [5]. Er lag auf seinem panzerartig harten Rücken [1][5].",
+     "citations": [
+      1,
+      5
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.37,
+     "tokens_per_s": 140.4,
+     "latency_s": 0.79,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies the transformation into 'ungeheures Ungeziefer' from source [1] and 'schreckliches Ungeziefer' from source [5]."
+    },
+    {
+     "id": "de-wette",
+     "answerable": true,
+     "refused": false,
+     "answer": "Faust bietet eine Wette an [1]. Er fragt, ob Mephistopheles ihn täuschen kann, damit er sich selbst gefallen mag, oder ob er ihn mit Genuss betrügen kann, was für ihn der letzte Tag sein soll [1]. Faust sagt, er würde gern zugrunde gehen, wenn er sagen könnte: \"Verweile doch! du bist so schön!\" [1].",
+     "citations": [
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 16.73,
+     "tokens_per_s": 153.4,
+     "latency_s": 17.28,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies the wager and the specific phrase 'Verweile doch! du bist so schön!' from source [1]."
+    },
+    {
+     "id": "de-verleumdet",
+     "answerable": true,
+     "refused": false,
+     "answer": "Jemand musste Josef K. verleumdet haben, da er eines Morgens verhaftet wurde, obwohl er nichts Schlechtes getan hatte [1]. Es wird erwähnt, dass er verhaftet war [1][2][3][5], aber die genaue Ursache für die Verhaftung wird nicht genannt.",
+     "citations": [
+      1,
+      2,
+      3,
+      5
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.46,
+     "tokens_per_s": 159.5,
+     "latency_s": 0.88,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies that the cause is unclear and cites the specific reason (slander) provided in the text."
+    },
+    {
+     "id": "de-innstetten",
+     "answerable": true,
+     "refused": false,
+     "answer": "Effi Briest heiratet Innstetten [4]. Bei dem Verlobungsmahl nach der Verlobung mit Innstetten [4] wurde das junge Paar leben gelassen [4].",
+     "citations": [
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.4,
+     "tokens_per_s": 150.9,
+     "latency_s": 0.68,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies that she marries Innstetten, which matches the reference answer."
+    },
+    {
+     "id": "de-uebermensch",
+     "answerable": true,
+     "refused": false,
+     "answer": "Auf dem Markt glaubt niemand an höhere Menschen [1]. Das Volk blinzelt und sagt, es gäbe keine höheren Menschen, da alle gleich seien, und vor Gott seien alle gleich [1]. Zarathustra lehrt, dass die Welt sich um die Schauspieler dreht, während sie unsichtbar um die Erfinder neuer Werte dreht [6].",
+     "citations": [
+      1,
+      6
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.42,
+     "tokens_per_s": 145.5,
+     "latency_s": 0.93,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant correctly identifies the crowd's reaction but fails to mention the specific teaching about the Übermensch found in source [2]."
+    },
+    {
+     "id": "de-hauke",
+     "answerable": true,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "Dazu finde ich in den Büchern dieser Bibliothek keine Belege."
+    },
+    {
+     "id": "de-lotte",
+     "answerable": true,
+     "refused": false,
+     "answer": "Werther fragt sich, ob eine Leidenschaft in seinem Herzen entstanden ist, während die eigensinnigen Reize ihrer Schwester ihm eine angenehme Unterhaltung verschafften [1]. Er erwähnt auch die arme Leonore [1]. In einem anderen Abschnitt wird eine Frau erwähnt, die in den unaufhaltsamen Freuden der Liebe verliert [4].",
+     "citations": [
+      1,
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.45,
+     "tokens_per_s": 152.0,
+     "latency_s": 0.92,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant identifies Leonore and a generic woman but fails to identify Lotte as the primary object of Werther's affection."
+    },
+    {
+     "id": "na-australia",
+     "answerable": false,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "na-worldcup",
+     "answerable": false,
+     "refused": true,
+     "reason": "no_relevant_sources",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "na-potter",
+     "answerable": false,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "Dazu finde ich in den Büchern dieser Bibliothek keine Belege."
+    }
+   ],
+   "answer_rate_correct": 0.583
+  },
+  "gemma4:12b": {
+   "citation_validity": 1.0,
+   "answers_with_citation": 0.913,
+   "cites_gold_book": 0.913,
+   "unanswerable_refused": "3/3",
+   "false_refusals": "1/24",
+   "faithfulness": 1.0,
+   "correctness": 0.674,
+   "p50_ttft_s": 1.16,
+   "p50_tokens_per_s": 111.9,
+   "per_question": [
+    {
+     "id": "en-ahab",
+     "answerable": true,
+     "refused": false,
+     "answer": "Captain Ahab is driven by a \"mad secret of his unabated rage\" and an \"all-engrossing object of hunting the White Whale\" [4]. He is described as a \"monomaniac old man\" who found an \"awful motive to his vengeance\" at a tragic spot where many deadly encounters with the whale occurred [3]. His pursuit is characterized as an \"audacious, immitigable, and supernatural\" quest [4].",
+     "citations": [
+      4,
+      3
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.93,
+     "tokens_per_s": 120.1,
+     "latency_s": 1.7,
+     "faithfulness": 1,
+     "correctness": 0.5,
+     "reason": "The assistant correctly identifies Ahab's motive as 'vengeance' based on the text, but the text provided does not explicitly mention the loss of his leg as the reference answer does."
+    },
+    {
+     "id": "en-ishmael",
+     "answerable": true,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "en-creature",
+     "answerable": true,
+     "refused": false,
+     "answer": "The creature demands a female companion to accompany him in his exile [2]. He claims that if any being felt benevolence toward him, he would make peace with the whole human kind, but he currently indulges in \"dreams of bliss that cannot be realised\" [2]. Victor eventually agrees to this demand on the condition that the creature swears a solemn oath to quit Europe and all areas inhabited by humans forever [4].",
+     "citations": [
+      2,
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.97,
+     "tokens_per_s": 111.6,
+     "latency_s": 1.71,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies the creature's demand for a female companion and provides supporting evidence from the provided sources."
+    },
+    {
+     "id": "en-mad",
+     "answerable": true,
+     "refused": false,
+     "answer": "The Cheshire Cat claims that everyone in that location is mad, stating, \"we’re all mad here,\" and asserting that both he and Alice are mad [6]. He explains his own madness by noting that he growls when he is pleased and wags his tail when he is angry, which is the opposite of a dog [3]. Furthermore, he suggests that Alice must be mad because she came to that place [6].",
+     "citations": [
+      6,
+      3
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.15,
+     "tokens_per_s": 99.1,
+     "latency_s": 2.03,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies the Cat's claims about madness and provides specific supporting evidence from the text."
+    },
+    {
+     "id": "en-adler",
+     "answerable": true,
+     "refused": false,
+     "answer": "Irene Adler outwits Sherlock Holmes in \"A Scandal in Bohemia\" [1]. Holmes refers to her under the \"honourable title of the woman\" because of her cleverness [1].",
+     "citations": [
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.1,
+     "tokens_per_s": 132.8,
+     "latency_s": 1.41,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies Irene Adler as the one who outwits Holmes, citing the source that mentions her cleverness and the title 'the woman'."
+    },
+    {
+     "id": "en-demeter",
+     "answerable": true,
+     "refused": false,
+     "answer": "The provided sources do not contain information regarding which ship Dracula used to travel to England. The passages instead describe a ship bound for the Black Sea, the *Czarina Catherine*, which was identified as the vessel on which the Count made his escape [4][5].",
+     "citations": [
+      4,
+      5
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.17,
+     "tokens_per_s": 111.7,
+     "latency_s": 1.66,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant correctly identifies that the sources do not mention the Demeter, but the reference answer is not supported by the provided text."
+    },
+    {
+     "id": "en-portrait",
+     "answerable": true,
+     "refused": false,
+     "answer": "For every sin that Dorian Gray commits, a stain will \"fleck and wreck\" the fairness of the portrait [1]. While the surface of the canvas may appear undisturbed, the \"leprosies of sin\" are slowly eating the image away from within [2]. The portrait serves as a visible emblem of his conscience, altering as he does [1].",
+     "citations": [
+      1,
+      2
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.16,
+     "tokens_per_s": 111.9,
+     "latency_s": 1.81,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant accurately identifies that the portrait bears the stains of his sins and serves as an emblem of conscience based on the provided text."
+    },
+    {
+     "id": "en-morlocks",
+     "answerable": true,
+     "refused": false,
+     "answer": "The Time Traveller encounters the Morlocks, a species that causes him a \"Great Fear\" and a \"sudden shiver\" [5]. Additionally, he observes a group of figures clad in \"rich soft robes\" who see him from a circular opening in a wall [6].",
+     "citations": [
+      5,
+      6
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.15,
+     "tokens_per_s": 104.6,
+     "latency_s": 1.69,
+     "faithfulness": 1,
+     "correctness": 0.5,
+     "reason": "The assistant correctly identifies the Morlocks but fails to name the second species (the Eloi) as specified in the reference answer."
+    },
+    {
+     "id": "en-bacteria",
+     "answerable": true,
+     "refused": false,
+     "answer": "The exact reason for the rapid death of the Martians is presented as a speculative philosophy rather than a proven conclusion [3]. However, the narrator notes that Carver's suggestions regarding the cause of their death are considered so probable that they were assumed in the narrative [3]. It is mentioned that the Martians showed an entire ignorance of the putrefactive process, as they did not bury their dead [4].",
+     "citations": [
+      3,
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.21,
+     "tokens_per_s": 110.2,
+     "latency_s": 1.96,
+     "faithfulness": 1,
+     "correctness": 0.5,
+     "reason": "The assistant correctly identifies that the cause is speculative and based on Carver's suggestions, but it fails to explicitly state the specific cause (bacteria/germs) mentioned in the reference answer."
+    },
+    {
+     "id": "en-carton",
+     "answerable": true,
+     "refused": false,
+     "answer": "The provided sources do not contain information regarding who takes Charles Darnay's place at the guillotine.",
+     "citations": [],
+     "invalid_citations": [],
+     "uncited": true,
+     "cites_gold_book": false,
+     "ttft_s": 1.01,
+     "tokens_per_s": 133.8,
+     "latency_s": 1.17,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant correctly states that the provided text does not mention who takes Darnay's place, even though the reference answer provides that information."
+    },
+    {
+     "id": "en-tolerable",
+     "answerable": true,
+     "refused": false,
+     "answer": "The provided sources do not contain a description of how Mr. Darcy first describes Elizabeth Bennet at the ball.",
+     "citations": [],
+     "invalid_citations": [],
+     "uncited": true,
+     "cites_gold_book": false,
+     "ttft_s": 0.99,
+     "tokens_per_s": 122.6,
+     "latency_s": 1.17,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant correctly identified that the specific quote is missing from the provided snippets, even though it is the correct answer in the context of the novel."
+    },
+    {
+     "id": "en-spirits",
+     "answerable": true,
+     "refused": false,
+     "answer": "Marley's Ghost tells Scrooge that he will be haunted by \"Three Spirits\" [1]. This is presented as a chance and hope for Scrooge to escape Marley's fate [1].",
+     "citations": [
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.2,
+     "tokens_per_s": 132.4,
+     "latency_s": 1.5,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identified the number of spirits and provided the supporting source citation."
+    },
+    {
+     "id": "en-jim",
+     "answerable": true,
+     "refused": false,
+     "answer": "Jim travels down the river on the raft with Huck Finn [1][3]. The king and the duke also travel on the raft with them [4].",
+     "citations": [
+      1,
+      3,
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.26,
+     "tokens_per_s": 95.3,
+     "latency_s": 1.58,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies Jim and includes the king and duke, who are also present in the text."
+    },
+    {
+     "id": "en-parrot",
+     "answerable": true,
+     "refused": false,
+     "answer": "The parrot would scream, “Stand by to go about” [4].",
+     "citations": [
+      4
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.2,
+     "tokens_per_s": 120.9,
+     "latency_s": 1.32,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant correctly identified a phrase the parrot screams in source [4], but it failed to identify the primary refrain 'Pieces of eight!' mentioned in source [1]."
+    },
+    {
+     "id": "en-green",
+     "answerable": true,
+     "refused": false,
+     "answer": "Gatsby's eyes follow a small sail that crawls slowly toward the fresher sea [1]. He points across the bay and states, \"I’m right across from you\" [1]. Additionally, he mentions that Daisy always has a green light that burns all night at the end of her dock [2].",
+     "citations": [
+      1,
+      2
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.19,
+     "tokens_per_s": 120.5,
+     "latency_s": 1.71,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies both the boat he watches in the first scene and the green light he mentions in the second scene."
+    },
+    {
+     "id": "en-horror",
+     "answerable": true,
+     "refused": false,
+     "answer": "Kurtz's last words were \"The horror!\" [4]. These words are described as the expression of ultimate wisdom and a judgment he made [4]. Additionally, the text mentions the \"disinterred body of Mr. Kurtz saying, 'My Intended'\" [5].",
+     "citations": [
+      4,
+      5
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.16,
+     "tokens_per_s": 117.8,
+     "latency_s": 1.65,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies 'The horror!' as the last words and accurately notes the mention of 'My Intended' from the text."
+    },
+    {
+     "id": "en-vasudeva",
+     "answerable": true,
+     "refused": false,
+     "answer": "Siddhartha learns from a ferryman who taught him how to operate the boat [5]. Additionally, Siddhartha worked alongside Vasudeva, who had taken over the role of the ferryman [3].",
+     "citations": [
+      5,
+      3
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.16,
+     "tokens_per_s": 113.6,
+     "latency_s": 1.53,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies Vasudeva as the ferryman and notes that Siddhartha also learned from the river itself."
+    },
+    {
+     "id": "de-gregor",
+     "answerable": true,
+     "refused": false,
+     "answer": "Gregor Samsa erwachte eines Morgens aus unruhigen Träumen und fand sich in seinem Bett zu einem ungeheueren Ungeziefer verwandelt [1][5]. Er lag auf einem panzerartig harten Rücken und besaß einen gewölbten, braunen Bauch, der von bogenförmigen Versteifungen geteilt war [1][5]. Zudem hatte er viele, im Vergleich zu seinem sonstigen Umfang kläglich dünne Beine, die ihm hilflos vor den Augen flimmerten [1][5].",
+     "citations": [
+      1,
+      5
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 0.97,
+     "tokens_per_s": 129.2,
+     "latency_s": 1.87,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies that Gregor Samsa transformed into a 'horrible vermin' (ungeheures Ungeziefer) and provides supporting details from the text."
+    },
+    {
+     "id": "de-wette",
+     "answerable": true,
+     "refused": false,
+     "answer": "Faust bietet Mephistopheles eine Wette an, dass er zum Augenblicke sagen wird: „Verweile doch! du bist so schön!“ [1]. Sollte er dies tun, darf Mephistopheles ihn in Fesseln schlagen und er will dann gern zugrunde gehen [1]. In diesem Moment soll die Totenglocke schallen und die Zeit für ihn vorbei sein [1].",
+     "citations": [
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.09,
+     "tokens_per_s": 89.1,
+     "latency_s": 2.05,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies the wager and the specific phrase from source [1] as described in the reference answer."
+    },
+    {
+     "id": "de-verleumdet",
+     "answerable": true,
+     "refused": false,
+     "answer": "Jemand mußte Josef K. verleumdet haben, denn er wurde eines Morgens verhaftet, ohne daß er etwas Böses getan hätte [1].",
+     "citations": [
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.18,
+     "tokens_per_s": 118.5,
+     "latency_s": 1.46,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant's answer is directly supported by source [1] and matches the reference answer."
+    },
+    {
+     "id": "de-innstetten",
+     "answerable": true,
+     "refused": false,
+     "answer": "Effi Briest verlobt sich mit Baron Innstetten [4]. In den Quellen wird zudem erwähnt, dass sie nach der Verlobung Baronin Innstetten wurde [3].",
+     "citations": [
+      4,
+      3
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.17,
+     "tokens_per_s": 96.6,
+     "latency_s": 1.57,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant correctly identifies the engagement and the resulting title, which aligns with the reference answer."
+    },
+    {
+     "id": "de-uebermensch",
+     "answerable": true,
+     "refused": false,
+     "answer": "Zarathustra lehrt das Volk auf dem Markt den Übermenschen [2]. Er erklärt dabei, dass der Mensch etwas ist, das überwunden werden soll [2]. Zudem fordert er die Menschen auf, den Menschen zu überwinden, anstatt lieber zum Thiere zurückzugehen [2].",
+     "citations": [
+      2
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.18,
+     "tokens_per_s": 111.0,
+     "latency_s": 1.76,
+     "faithfulness": 1,
+     "correctness": 1,
+     "reason": "The assistant's answer is fully supported by source [2] and matches the reference answer."
+    },
+    {
+     "id": "de-hauke",
+     "answerable": true,
+     "refused": false,
+     "answer": "Die Quellen nennen keinen spezifischen Eigennamen für den Deichgrafen [1][2][3][4][5][6]. Er wird lediglich als „der Deichgraf“ bezeichnet [1][2][3][5][6].",
+     "citations": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.19,
+     "tokens_per_s": 110.8,
+     "latency_s": 1.65,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant correctly states that the provided sources do not mention the name, but it fails to match the reference answer which identifies him as Hauke Haien."
+    },
+    {
+     "id": "de-lotte",
+     "answerable": true,
+     "refused": false,
+     "answer": "Werther verliebt sich in die Schwester von Albert [1]. Er beschreibt, dass eine Leidenschaft in dem armen Herzen der Frau sich bildete, während er ihr eine angenehme Unterhaltung verschaffte [1].",
+     "citations": [
+      1
+     ],
+     "invalid_citations": [],
+     "uncited": false,
+     "cites_gold_book": true,
+     "ttft_s": 1.18,
+     "tokens_per_s": 89.3,
+     "latency_s": 1.69,
+     "faithfulness": 1,
+     "correctness": 0,
+     "reason": "The assistant incorrectly identifies the object of Werther's affection as Albert's sister, whereas the source text implies his feelings for Lotte (Leonore/Charlotte)."
+    },
+    {
+     "id": "na-australia",
+     "answerable": false,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "na-worldcup",
+     "answerable": false,
+     "refused": true,
+     "reason": "no_relevant_sources",
+     "answer": "I could not find support for this in the books of this library."
+    },
+    {
+     "id": "na-potter",
+     "answerable": false,
+     "refused": true,
+     "reason": "model_refused",
+     "answer": "Dazu finde ich in den Büchern dieser Bibliothek keine Belege."
+    }
+   ],
+   "answer_rate_correct": 0.646
   }
  }
 }

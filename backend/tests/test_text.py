@@ -72,3 +72,11 @@ def test_metadata_helpers():
     assert short_title("Peter Pan : $b [Peter and Wendy]") == "Peter Pan"
     assert era_for_year(-700) == "Antiquity & Middle Ages"
     assert era_for_year(1925) == "1900-1930"
+
+
+def test_windows_line_endings_keep_paragraphs():
+    raw = "*** START OF THE PROJECT GUTENBERG EBOOK X ***\r\r\nline one\r\r\nline two\r\r\n\r\r\nnext para\r\r\n"
+    text = strip_gutenberg(raw)
+    assert text == "line one\nline two\n\nnext para"
+    assert chunk_text(text + " that is long enough to be kept as a passage.") == [
+        "line one line two\nnext para that is long enough to be kept as a passage."]

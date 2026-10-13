@@ -87,12 +87,12 @@ flowchart LR
 
 | Schicht | Wahl | Begründung |
 | --- | --- | --- |
-| Vektor-DB | Qdrant (Docker; lokal: Local Mode) | Named Vectors dense + sparse, Query API mit serverseitiger RRF-Fusion |
-| Dense Embeddings | `fastembed`, mehrsprachiges Modell (`paraphrase-multilingual-MiniLM-L12-v2`, 384 Dim.) | DE + EN, CPU, ohne PyTorch |
+| Vektor-DB | Qdrant 1.19 (Docker) | Named Vectors dense + sparse, IDF-Modifier für BM25, Payload-Filter |
+| Dense Embeddings | `bge-m3` über Ollama (1024 Dim.) | stark mehrsprachig (DE + EN), 8k Kontext, läuft auf der GPU |
 | Sparse | `fastembed` `Qdrant/bm25` + Qdrant-IDF-Modifier | echtes BM25-Scoring in Qdrant |
-| Fusion | Reciprocal Rank Fusion, k = 60 | Standardverfahren, ohne Score-Normalisierung |
+| Fusion | Reciprocal Rank Fusion, k = 60, eigene Implementierung in `store.py` | Standardverfahren, ohne Score-Normalisierung, unit-getestet |
 | Backend | FastAPI, Pydantic v2, SSE über `StreamingResponse` | schlank, typisiert, async |
-| LLM | Ollama, Kandidaten `qwen3.5:4b` / `gemma4:e4b` / `gemma4:12b`, Wahl per Eval (Modell per `.env`) | lokal, keine Secrets, kein Key für Dritte, on-premise-fähig |
+| LLM | Ollama, Standard `gemma4:12b`; Kandidaten `qwen3.5:4b` / `gemma4:e4b` per `.env` | lokal, keine Secrets, kein Key für Dritte, on-premise-fähig |
 | Frontend | Vite + React + TypeScript, ohne UI-Framework | schlank, schneller Build |
 | Auslieferung | `docker compose`: `qdrant`, `ollama` (GPU optional), `api`, `web` (nginx) | ein Startbefehl, kein API-Key |
 | Tests | `pytest` (Backend), `tsc` + Build (Frontend) | |
@@ -187,7 +187,7 @@ Das Projekt ist abgeschlossen, wenn **jeder** Punkt prüfbar erfüllt ist:
 - [ ] Kapitel-Treffer: **Recall@5 (Kapitel-Ebene) ≥ 0,60**.
 - [ ] Mit dem Standardmodell: **Zitat-Gültigkeit 100 %** (kein Zitat auf nicht gelieferte Quellen), alle 3
       unbeantwortbaren Fragen korrekt abgelehnt, Faithfulness (lokales LLM-as-Judge) ≥ 0,8.
-- [ ] Vergleichstabelle der drei Kandidatenmodelle (Antwortmetriken + Tokens/s) im README; Standardmodell nach der Regel in Abschnitt 8 gewählt.
+- [ ] Vergleichstabelle der drei Kandidatenmodelle (Antwortmetriken + Tokens/s) im README; Standardmodell nach der (ergänzten) Regel in Abschnitt 8 gewählt.
 
 ### Engineering
 - [ ] Backend-Tests (`pytest`) grün, inklusive Chunking, RRF-Logik, Guardrails, API-Endpunkte.
@@ -238,7 +238,7 @@ LLM-as-Judge läuft ebenfalls lokal (gleiches Modell); diese Einschränkung wird
 | Kapitel-Erkennung unsauber (heterogene Gutenberg-Formate) | schlechte Zitate | Regex für `CHAPTER`, `Kapitel`, römische Ziffern; Fallback: feste Abschnitte „Teil n“ |
 | Gutenberg-Rate-Limits | Ingestion langsam | Cache in `data/raw/`, höfliche Pausen, Mirror-URLs |
 | Open Library ohne Beschreibung | dünne Katalogtexte | Fallback auf Subjects + erste Absätze |
-| Embedding auf CPU langsam | lange Indexierung | kleines Modell (384 Dim.), Batching; ca. 60 Bücher ≈ 30–50 Tsd. Passagen |
+| Embedding auf CPU langsam | lange Indexierung | Embeddings über Ollama auf der GPU (ca. 45/s); vorgebauter Index als Release-Asset `index-v1` für Dritte |
 | Docker-Image groß durch Modelle | langer Build | Modell-Cache als Volume, Index beim ersten Start bauen |
 
 **Getroffene Entscheidungen:**
@@ -246,7 +246,21 @@ LLM-as-Judge läuft ebenfalls lokal (gleiches Modell); diese Einschränkung wird
 - Sprache von Code/README: Englisch; dieses Planungsdokument: Deutsch.
 - LLM: ausschließlich lokal über Ollama, Modell über `LLM_MODEL` in `.env`. Kein Cloud-LLM, keine Secrets im Projekt.
 - Modellwahl datengetrieben: Kandidaten `qwen3.5:4b` (ca. 3,3 GB), `gemma4:e4b` (ca. 6,6 GB), `gemma4:12b` (ca. 7,7 GB). Standard wird das **kleinste** Modell, das alle Antwort-Zielwerte der Definition of Done erreicht. Tabelle Größe vs. Qualität vs. Tokens/s im README.
-- Entwicklung nativ (Ollama für Windows, Qdrant Local Mode), Abnahme über `docker compose`.
+- Entwicklung nativ (Ollama für Windows), Qdrant im Container; Abnahme über `docker compose`.
+
+**Abweichungen während der Umsetzung (2026-10-13):**
+- *Dense-Embeddings:* `paraphrase-multilingual-MiniLM` (nur kurze Sequenzen trainiert) und `jina-embeddings-v2-base-de`
+  (auf der CPU unter 7 Passagen/s, also Stunden) wurden verworfen. `bge-m3` läuft über das ohnehin vorhandene
+  Ollama auf der GPU.
+- *Qdrant Local Mode* wird beim Einfügen mit wachsender Collection immer langsamer; das Qdrant-Windows-Binary
+  scheiterte am Optimizer (Datei-Umbenennung, Zugriff verweigert). Deshalb läuft Qdrant im Container.
+- *Vorgebauter Index:* `python -m app.ingest export/restore` und das Release-Asset `index-v1` (135 MB). So startet
+  `docker compose up` ohne stundenlanges Embedding auf der CPU.
+- *Modellwahl:* Im finalen Lauf erfüllen alle drei Kandidaten die Antwort-Zielwerte. Die Regel „kleinstes Modell“
+  hätte `qwen3.5:4b` gewählt, das aber 7 von 24 beantwortbaren Fragen ablehnt. Die Regel wurde um die Kennzahl
+  „korrekt insgesamt“ (Ablehnung zählt 0) ergänzt; danach ist `gemma4:12b` Standard (0,65 gegenüber 0,56/0,58,
+  1 von 24 Fehlablehnungen).
+- *Winnetou I* gibt es auf Gutenberg nur als Hörbuch; der Korpus hat daher 63 statt 64 Bücher.
 
 **Stoppkriterien (wann Schluss ist):**
 1. Alle Haken der Definition of Done gesetzt → Ende, Release `v1.0.0`.
