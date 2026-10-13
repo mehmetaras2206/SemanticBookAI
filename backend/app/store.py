@@ -5,10 +5,11 @@ from dataclasses import dataclass
 from functools import lru_cache
 from typing import Literal
 
-from fastembed import SparseTextEmbedding, TextEmbedding
+import httpx
+from fastembed import SparseTextEmbedding
 from qdrant_client import QdrantClient, models
 
-from app.config import Settings, get_settings
+from app.config import get_settings
 
 BOOKS = "books"
 PASSAGES = "passages"
@@ -28,8 +29,22 @@ def get_client() -> QdrantClient:
 
 
 @lru_cache
-def get_dense() -> TextEmbedding:
-    return TextEmbedding(get_settings().dense_model)
+def _ollama_http() -> httpx.Client:
+    # one shared client: creating a client per call costs ~0.5 s (TLS context setup) on Windows
+    return httpx.Client(base_url=get_settings().ollama_url, timeout=600)
+
+
+def embed_dense(texts: list[str]) -> list[list[float]]:
+    """Dense embeddings from Ollama (runs on the GPU when available)."""
+    s = get_settings()
+    r = _ollama_http().post("/api/embed", json={"model": s.embed_model, "input": texts})
+    r.raise_for_status()
+    return r.json()["embeddings"]
+
+
+@lru_cache
+def dense_dim() -> int:
+    return len(embed_dense(["dimension probe"])[0])
 
 
 @lru_cache
@@ -41,8 +56,8 @@ def point_id(key: str) -> str:
     return str(uuid.uuid5(uuid.NAMESPACE_URL, key))
 
 
-def recreate_collection(client: QdrantClient, name: str, settings: Settings) -> None:
-    dim = get_dense().embedding_size
+def recreate_collection(client: QdrantClient, name: str, dim: int | None = None) -> None:
+    dim = dim or dense_dim()
     if client.collection_exists(name):
         client.delete_collection(name)
     client.create_collection(
@@ -58,17 +73,15 @@ def recreate_collection(client: QdrantClient, name: str, settings: Settings) -> 
         client.create_payload_index(name, field, schema)
 
 
-def embed_documents(texts: list[str]) -> tuple[list[list[float]], list[models.SparseVector]]:
-    dense = [v.tolist() for v in get_dense().embed(texts, batch_size=64)]
-    sparse = [
+def embed_sparse(texts: list[str]) -> list[models.SparseVector]:
+    return [
         models.SparseVector(indices=e.indices.tolist(), values=e.values.tolist())
         for e in get_sparse().embed(texts, batch_size=64)
     ]
-    return dense, sparse
 
 
 def embed_query(text: str) -> tuple[list[float], models.SparseVector]:
-    dense = next(iter(get_dense().query_embed(text))).tolist()
+    dense = embed_dense([text])[0]
     sp = next(iter(get_sparse().query_embed(text)))
     return dense, models.SparseVector(indices=sp.indices.tolist(), values=sp.values.tolist())
 

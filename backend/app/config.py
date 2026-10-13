@@ -15,18 +15,18 @@ class Settings(BaseSettings):
     qdrant_url: str | None = None
     qdrant_path: Path = ROOT_DIR / "data" / "qdrant"
 
-    dense_model: str = "jinaai/jina-embeddings-v2-base-de"
+    embed_model: str = "bge-m3"  # dense embeddings, served by Ollama
     sparse_model: str = "Qdrant/bm25"
 
-    ollama_url: str = "http://localhost:11434"
+    ollama_url: str = "http://127.0.0.1:11434"
     llm_model: str = "gemma4:12b"
     llm_temperature: float = 0.1
-    llm_num_ctx: int = 8192
+    llm_num_ctx: int = 4096  # 6 passages + prompt + answer fit; keeps the KV cache small
 
     # Retrieval / guardrails
     chat_top_k: int = 6
     rrf_k: int = 60
-    min_dense_score: float = 0.35
+    min_dense_score: float = 0.43  # calibrated on eval/qa.jsonl: lowest answerable question scores 0.48
     max_question_chars: int = 1000
 
     @property

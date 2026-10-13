@@ -1,0 +1,1007 @@
+{
+ "corpus": {
+  "books": 63,
+  "passages": 45117
+ },
+ "n_retrieval": 24,
+ "n_unanswerable": 3,
+ "n_catalog": 9,
+ "passages": {
+  "dense": {
+   "book_recall@1": 0.958,
+   "book_recall@5": 1.0,
+   "chapter_recall@5": 0.667,
+   "evidence_recall@5": 0.583,
+   "mrr@10": 0.979,
+   "p50_ms": 4713.117849999435,
+   "per_question": [
+    {
+     "id": "en-ahab",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 6705.358999999589
+    },
+    {
+     "id": "en-ishmael",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 8256.827699999121
+    },
+    {
+     "id": "en-creature",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 7925.3587999992305
+    },
+    {
+     "id": "en-mad",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4696.428399998695
+    },
+    {
+     "id": "en-adler",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4742.487999999867
+    },
+    {
+     "id": "en-demeter",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 7907.010200000514
+    },
+    {
+     "id": "en-portrait",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4685.596399998758
+    },
+    {
+     "id": "en-morlocks",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4702.412299999196
+    },
+    {
+     "id": "en-bacteria",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4721.9537000000855
+    },
+    {
+     "id": "en-carton",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 8275.013700000272
+    },
+    {
+     "id": "en-tolerable",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4745.850700001029
+    },
+    {
+     "id": "en-spirits",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4688.884000001053
+    },
+    {
+     "id": "en-jim",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4700.155599999562
+    },
+    {
+     "id": "en-parrot",
+     "book@1": false,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 0.5,
+     "ms": 4715.37890000036
+    },
+    {
+     "id": "en-green",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4698.0965999991895
+    },
+    {
+     "id": "en-horror",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 7759.612099998776
+    },
+    {
+     "id": "en-vasudeva",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4769.074800000453
+    },
+    {
+     "id": "de-gregor",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4728.505199998835
+    },
+    {
+     "id": "de-wette",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4694.09689999884
+    },
+    {
+     "id": "de-verleumdet",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4710.85679999851
+    },
+    {
+     "id": "de-innstetten",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4682.603900000686
+    },
+    {
+     "id": "de-uebermensch",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4702.931699999681
+    },
+    {
+     "id": "de-hauke",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4687.24789999942
+    },
+    {
+     "id": "de-lotte",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4682.648600000903
+    }
+   ]
+  },
+  "sparse": {
+   "book_recall@1": 0.833,
+   "book_recall@5": 0.875,
+   "chapter_recall@5": 0.625,
+   "evidence_recall@5": 0.375,
+   "mrr@10": 0.854,
+   "p50_ms": 4695.606299999781,
+   "per_question": [
+    {
+     "id": "en-ahab",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4763.904100000218
+    },
+    {
+     "id": "en-ishmael",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4701.317300001392
+    },
+    {
+     "id": "en-creature",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4687.156399999367
+    },
+    {
+     "id": "en-mad",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4706.667500000549
+    },
+    {
+     "id": "en-adler",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4690.775900000517
+    },
+    {
+     "id": "en-demeter",
+     "book@1": false,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 0.3333333333333333,
+     "ms": 4672.988799999075
+    },
+    {
+     "id": "en-portrait",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4751.1193999998795
+    },
+    {
+     "id": "en-morlocks",
+     "book@1": false,
+     "book@5": false,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 0.16666666666666666,
+     "ms": 4723.797700000432
+    },
+    {
+     "id": "en-bacteria",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4707.637800000157
+    },
+    {
+     "id": "en-carton",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4697.95559999875
+    },
+    {
+     "id": "en-tolerable",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4711.303199999747
+    },
+    {
+     "id": "en-spirits",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4750.358600000254
+    },
+    {
+     "id": "en-jim",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4732.402400000865
+    },
+    {
+     "id": "en-parrot",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4672.346100000141
+    },
+    {
+     "id": "en-green",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4689.536000001681
+    },
+    {
+     "id": "en-horror",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4653.327899999567
+    },
+    {
+     "id": "en-vasudeva",
+     "book@1": false,
+     "book@5": false,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 0.0,
+     "ms": 4693.257000000813
+    },
+    {
+     "id": "de-gregor",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4669.988300000114
+    },
+    {
+     "id": "de-wette",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4701.639299999442
+    },
+    {
+     "id": "de-verleumdet",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4659.568099999888
+    },
+    {
+     "id": "de-innstetten",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4661.19819999949
+    },
+    {
+     "id": "de-uebermensch",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 4765.657599999031
+    },
+    {
+     "id": "de-hauke",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 4679.38839999988
+    },
+    {
+     "id": "de-lotte",
+     "book@1": false,
+     "book@5": false,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 0.0,
+     "ms": 4671.405700000832
+    }
+   ]
+  },
+  "hybrid": {
+   "book_recall@1": 1.0,
+   "book_recall@5": 1.0,
+   "chapter_recall@5": 0.875,
+   "evidence_recall@5": 0.542,
+   "mrr@10": 1.0,
+   "p50_ms": 6733.135800001037,
+   "per_question": [
+    {
+     "id": "en-ahab",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 6724.992600000405
+    },
+    {
+     "id": "en-ishmael",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 6724.594999999681
+    },
+    {
+     "id": "en-creature",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 6792.937299998812
+    },
+    {
+     "id": "en-mad",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 6831.893799999307
+    },
+    {
+     "id": "en-adler",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6767.432499998904
+    },
+    {
+     "id": "en-demeter",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 6735.65790000066
+    },
+    {
+     "id": "en-portrait",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 6772.607999999309
+    },
+    {
+     "id": "en-morlocks",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6710.434099999475
+    },
+    {
+     "id": "en-bacteria",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6703.45670000097
+    },
+    {
+     "id": "en-carton",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 6791.883699999744
+    },
+    {
+     "id": "en-tolerable",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 6748.7767999991775
+    },
+    {
+     "id": "en-spirits",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6742.216200000257
+    },
+    {
+     "id": "en-jim",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": false,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 6707.16899999934
+    },
+    {
+     "id": "en-parrot",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6698.978700000225
+    },
+    {
+     "id": "en-green",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6714.953400000013
+    },
+    {
+     "id": "en-horror",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6715.118900001471
+    },
+    {
+     "id": "en-vasudeva",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6726.15500000029
+    },
+    {
+     "id": "de-gregor",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6709.305699998367
+    },
+    {
+     "id": "de-wette",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6723.63039999982
+    },
+    {
+     "id": "de-verleumdet",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6730.613700001413
+    },
+    {
+     "id": "de-innstetten",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6747.03640000007
+    },
+    {
+     "id": "de-uebermensch",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": true,
+     "mrr": 1.0,
+     "ms": 6775.627400000303
+    },
+    {
+     "id": "de-hauke",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 6749.614099999235
+    },
+    {
+     "id": "de-lotte",
+     "book@1": true,
+     "book@5": true,
+     "chapter@5": true,
+     "evidence@5": false,
+     "mrr": 1.0,
+     "ms": 6790.494099999705
+    }
+   ]
+  }
+ },
+ "catalog": {
+  "dense": {
+   "recall@5": 1.0,
+   "mrr@10": 0.861,
+   "p50_ms": 4733.7585000004765,
+   "per_query": [
+    {
+     "id": "cat-neverland",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 4783.563700000741,
+     "top3": [
+      "Peter Pan",
+      "Oliver Twist",
+      "The Jungle Book"
+     ]
+    },
+    {
+     "id": "cat-familie",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 4740.849699999671,
+     "top3": [
+      "Buddenbrooks",
+      "Oliver Twist",
+      "Aus dem Leben eines Taugenichts"
+     ]
+    },
+    {
+     "id": "cat-creation",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 7370.700299999953,
+     "top3": [
+      "Frankenstein",
+      "Die Verwandlung",
+      "The strange case of Dr. Jekyll and Mr. Hyde"
+     ]
+    },
+    {
+     "id": "cat-vampire",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 4709.89340000051,
+     "top3": [
+      "Dracula",
+      "Frankenstein",
+      "Oliver Twist"
+     ]
+    },
+    {
+     "id": "cat-detective",
+     "recall@5": true,
+     "mrr": 0.25,
+     "ms": 4733.7585000004765,
+     "top3": [
+      "The strange case of Dr. Jekyll and Mr. Hyde",
+      "Dracula",
+      "A Tale of Two Cities"
+     ]
+    },
+    {
+     "id": "cat-ruler",
+     "recall@5": true,
+     "mrr": 0.5,
+     "ms": 4744.6319999999105,
+     "top3": [
+      "The Republic",
+      "The Prince",
+      "Meditations"
+     ]
+    },
+    {
+     "id": "cat-stoa",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 4727.6312000012695,
+     "top3": [
+      "Meditations",
+      "Selbstbetrachtungen",
+      "The Republic"
+     ]
+    },
+    {
+     "id": "cat-whale",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 4693.7765999991825,
+     "top3": [
+      "Moby Dick",
+      "Treasure Island",
+      "The Jungle Book"
+     ]
+    },
+    {
+     "id": "cat-ehe",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 4701.627500000541,
+     "top3": [
+      "Effi Briest",
+      "Emma",
+      "Jane Eyre"
+     ]
+    }
+   ]
+  },
+  "sparse": {
+   "recall@5": 0.778,
+   "mrr@10": 0.683,
+   "p50_ms": 4705.899799999315,
+   "per_query": [
+    {
+     "id": "cat-neverland",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 4713.240900000528,
+     "top3": [
+      "Peter Pan",
+      "Oliver Twist",
+      "Die Verwandlung"
+     ]
+    },
+    {
+     "id": "cat-familie",
+     "recall@5": true,
+     "mrr": 0.5,
+     "ms": 4693.377300000066,
+     "top3": [
+      "Die Elixiere des Teufels",
+      "Buddenbrooks",
+      "Der Prozess"
+     ]
+    },
+    {
+     "id": "cat-creation",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 4724.603200000274,
+     "top3": [
+      "Frankenstein",
+      "Emma",
+      "Dubliners"
+     ]
+    },
+    {
+     "id": "cat-vampire",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 4711.70450000136,
+     "top3": [
+      "Dracula"
+     ]
+    },
+    {
+     "id": "cat-detective",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 4688.371799999004,
+     "top3": [
+      "The Hound of the Baskervilles",
+      "A Tale of Two Cities",
+      "The Adventures of Sherlock Holmes"
+     ]
+    },
+    {
+     "id": "cat-ruler",
+     "recall@5": true,
+     "mrr": 0.5,
+     "ms": 4704.682300000059,
+     "top3": [
+      "The Republic",
+      "The Prince",
+      "Selbstbetrachtungen"
+     ]
+    },
+    {
+     "id": "cat-stoa",
+     "recall@5": false,
+     "mrr": 0.14285714285714285,
+     "ms": 4778.989599999477,
+     "top3": [
+      "Siddhartha",
+      "Also sprach Zarathustra",
+      "Aus dem Leben eines Taugenichts"
+     ]
+    },
+    {
+     "id": "cat-whale",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 4684.5331999993505,
+     "top3": [
+      "Moby Dick",
+      "Gulliver's Travels into Several Remote Nations of the World",
+      "The Odyssey"
+     ]
+    },
+    {
+     "id": "cat-ehe",
+     "recall@5": false,
+     "mrr": 0.0,
+     "ms": 4705.899799999315,
+     "top3": [
+      "Buddenbrooks",
+      "Venus im Pelz",
+      "Deutsche Märchen gesammelt durch die Brüder Grimm"
+     ]
+    }
+   ]
+  },
+  "hybrid": {
+   "recall@5": 1.0,
+   "mrr@10": 0.806,
+   "p50_ms": 6749.647599999662,
+   "per_query": [
+    {
+     "id": "cat-neverland",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 6797.2286000003805,
+     "top3": [
+      "Peter Pan",
+      "Oliver Twist",
+      "The Great Gatsby"
+     ]
+    },
+    {
+     "id": "cat-familie",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 6746.414299999742,
+     "top3": [
+      "Buddenbrooks",
+      "Aus dem Leben eines Taugenichts",
+      "Der Prozess"
+     ]
+    },
+    {
+     "id": "cat-creation",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 6726.8242000009195,
+     "top3": [
+      "Frankenstein",
+      "The Great Gatsby",
+      "The strange case of Dr. Jekyll and Mr. Hyde"
+     ]
+    },
+    {
+     "id": "cat-vampire",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 6751.593500001036,
+     "top3": [
+      "Dracula",
+      "Frankenstein",
+      "Oliver Twist"
+     ]
+    },
+    {
+     "id": "cat-detective",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 6743.333899999925,
+     "top3": [
+      "The Hound of the Baskervilles",
+      "A Tale of Two Cities",
+      "The Adventures of Sherlock Holmes"
+     ]
+    },
+    {
+     "id": "cat-ruler",
+     "recall@5": true,
+     "mrr": 0.5,
+     "ms": 6733.042699999714,
+     "top3": [
+      "The Republic",
+      "The Prince",
+      "Selbstbetrachtungen"
+     ]
+    },
+    {
+     "id": "cat-stoa",
+     "recall@5": true,
+     "mrr": 0.5,
+     "ms": 6749.647599999662,
+     "top3": [
+      "Also sprach Zarathustra",
+      "Selbstbetrachtungen",
+      "The Republic"
+     ]
+    },
+    {
+     "id": "cat-whale",
+     "recall@5": true,
+     "mrr": 1.0,
+     "ms": 6779.169400000683,
+     "top3": [
+      "Moby Dick",
+      "Venus im Pelz",
+      "Gulliver's Travels into Several Remote Nations of the World"
+     ]
+    },
+    {
+     "id": "cat-ehe",
+     "recall@5": true,
+     "mrr": 0.25,
+     "ms": 6764.749200001461,
+     "top3": [
+      "Buddenbrooks",
+      "Deutsche Märchen gesammelt durch die Brüder Grimm",
+      "Venus im Pelz"
+     ]
+    }
+   ]
+  }
+ }
+}

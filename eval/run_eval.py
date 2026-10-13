@@ -154,11 +154,11 @@ async def run_question(q: dict, model: str) -> dict:
 
 
 async def eval_answers(qa: list[dict], models: list[str], judge_model: str) -> dict:
-    results = {}
+    # Pass 1: every candidate model answers every question (one model load per candidate).
+    generated: dict[str, list[tuple[dict, dict, list[dict]]]] = {}
     for model in models:
-        rows = []
-        # warm-up so model loading time is not counted as latency
-        await llm.complete([{"role": "user", "content": "Say OK."}], model=model)
+        await llm.complete([{"role": "user", "content": "Say OK."}], model=model)  # warm-up, not timed
+        generated[model] = []
         for q in qa:
             r = await run_question(q, model)
             row = {"id": q["id"], "answerable": q.get("answerable", True)}
@@ -171,27 +171,35 @@ async def eval_answers(qa: list[dict], models: list[str], judge_model: str) -> d
                            invalid_citations=d["invalid_citations"], uncited=d.get("uncited", False),
                            cites_gold_book=q.get("book_id") in cited_books, ttft_s=d.get("ttft_s"),
                            tokens_per_s=d.get("tokens_per_s"), latency_s=d["latency_s"])
-                if row["answerable"]:
-                    row.update(await judge(q["question"], q["reference"], d["text"], r["sources"], judge_model))
-            rows.append(row)
+            generated[model].append((q, row, r["sources"]))
             print(f"    {model:14} {q['id']:16} {'REFUSED' if row.get('refused') else 'answered'}", flush=True)
 
+    # Pass 2: one judge model grades all answers (one model load).
+    for model in models:
+        for q, row, sources in generated[model]:
+            if row["answerable"] and not row.get("refused") and "answer" in row:
+                row.update(await judge(q["question"], q["reference"], row["answer"], sources, judge_model))
+        print(f"    judged {model}", flush=True)
+
+    results = {}
+    for model in models:
+        rows = [row for _, row, _ in generated[model]]
         answerable = [r for r in rows if r["answerable"]]
         answered = [r for r in answerable if not r["refused"]]
-        generated = [r for r in rows if not r.get("refused")]
-        n_cit = sum(len(r["citations"]) + len(r["invalid_citations"]) for r in generated)
-        n_bad = sum(len(r["invalid_citations"]) for r in generated)
+        gen = [r for r in rows if not r.get("refused")]
+        n_cit = sum(len(r["citations"]) + len(r["invalid_citations"]) for r in gen)
+        n_bad = sum(len(r["invalid_citations"]) for r in gen)
         results[model] = {
-            "citation_validity": 1 - n_bad / n_cit if n_cit else 1.0,
-            "answers_with_citation": mean(not r["uncited"] for r in generated) if generated else 0,
+            "citation_validity": round(1 - n_bad / n_cit, 3) if n_cit else 1.0,
+            "answers_with_citation": mean(not r["uncited"] for r in gen) if gen else 0,
             "cites_gold_book": mean(r["cites_gold_book"] for r in answered) if answered else 0,
             "unanswerable_refused": f"{sum(r['refused'] for r in rows if not r['answerable'])}/"
                                     f"{sum(not r['answerable'] for r in rows)}",
             "false_refusals": f"{sum(r['refused'] for r in answerable)}/{len(answerable)}",
             "faithfulness": mean(r.get("faithfulness", 0) for r in answered) if answered else 0,
             "correctness": mean(r.get("correctness", 0) for r in answered) if answered else 0,
-            "p50_ttft_s": median([r["ttft_s"] for r in generated if r.get("ttft_s")]),
-            "p50_tokens_per_s": median([r["tokens_per_s"] for r in generated if r.get("tokens_per_s")]),
+            "p50_ttft_s": median([r["ttft_s"] for r in gen if r.get("ttft_s")]),
+            "p50_tokens_per_s": median([r["tokens_per_s"] for r in gen if r.get("tokens_per_s")]),
             "per_question": rows,
         }
     return results
@@ -214,7 +222,7 @@ def write_report(res: dict, path: Path) -> None:
     s = get_settings()
     lines = ["# Evaluation results", "",
              f"Corpus: {res['corpus']['books']} books, {res['corpus']['passages']} passages · "
-             f"dense model `{s.dense_model}` · sparse `{s.sparse_model}` · RRF k={s.rrf_k}", ""]
+             f"dense model `{s.embed_model}` (Ollama) · sparse `{s.sparse_model}` · RRF k={s.rrf_k}", ""]
     lines += ["## Passage retrieval (chat)", "",
               f"{res['n_retrieval']} answerable questions (EN + DE, incl. one cross-lingual), no book filter, top-10.", "",
               "| Mode | Book R@1 | Book R@5 | Chapter R@5 | Evidence R@5 | MRR@10 | p50 latency |",

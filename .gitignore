@@ -14,6 +14,8 @@ dist/
 data/raw/
 data/processed/
 data/qdrant/
+data/qdrant-server/
+data/*.tar.gz
 !data/books.yaml
 
 # Env
@@ -27,3 +29,4 @@ Thumbs.db
 
 # Logs
 *.log
+.playwright-mcp/

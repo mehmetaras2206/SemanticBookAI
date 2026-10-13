@@ -1,5 +1,7 @@
 """Grounded chat: guardrails -> hybrid passage retrieval -> local LLM streaming -> citation check."""
 
+import asyncio
+import re
 import time
 from collections.abc import AsyncIterator
 
@@ -34,13 +36,18 @@ GUARD_TEXT = {
     "empty_question": {"de": "Bitte stelle eine Frage.", "en": "Please ask a question."},
 }
 
-_GERMAN_HINTS = {" der ", " die ", " das ", " und ", " ist ", " wer ", " was ", " wie ", " warum ",
-                 " nicht ", " ein ", " eine ", " im ", " mit ", " welche", " wo ", "ä", "ö", "ü", "ß"}
+_DE_WORDS = {"der", "die", "das", "und", "ist", "wer", "was", "wie", "warum", "wo", "welche", "welcher", "welches",
+             "sich", "nicht", "ein", "eine", "im", "mit", "von", "zu", "auf", "für", "aus", "dem", "den", "des",
+             "hat", "wird", "wurde", "sagt", "heißt", "wen", "wem", "worüber", "weshalb", "seine", "ihre"}
+_EN_WORDS = {"the", "a", "an", "and", "is", "are", "was", "who", "what", "why", "how", "where", "which", "of",
+             "to", "in", "does", "did", "do", "with", "from", "his", "her", "their", "about", "on", "at"}
 
 
 def detect_language(text: str) -> str:
-    t = f" {text.lower()} "
-    return "de" if sum(h in t for h in _GERMAN_HINTS) >= 2 else "en"
+    words = re.findall(r"[a-zäöüß]+", text.lower())
+    de = sum(w in _DE_WORDS for w in words) + 2 * any(c in text.lower() for c in "äöüß")
+    en = sum(w in _EN_WORDS for w in words)
+    return "de" if de > en else "en"
 
 
 def source_payload(n: int, hit: Hit) -> dict:
@@ -89,7 +96,7 @@ async def answer_stream(
         yield {"event": "refusal", "reason": check.reason, "text": GUARD_TEXT[check.reason][lang]}
         return
 
-    hits = retrieve(question, book_id)
+    hits = await asyncio.to_thread(retrieve, question, book_id)
     sources = [source_payload(i + 1, h) for i, h in enumerate(hits)]
     yield {"event": "sources", "sources": sources}
 

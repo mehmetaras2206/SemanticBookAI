@@ -5,6 +5,7 @@ from typing import Literal
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
+from starlette.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field
 
 from app import llm
@@ -16,13 +17,15 @@ app = FastAPI(title="SemanticBookAI", version="1.0.0")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 
+def _index_counts() -> dict[str, int]:
+    client = get_client()
+    return {name: client.count(name).count if client.collection_exists(name) else 0 for name in (BOOKS, PASSAGES)}
+
+
 @app.get("/api/health")
 async def health() -> dict:
-    client = get_client()
-    counts = {}
-    for name in (BOOKS, PASSAGES):
-        counts[name] = client.count(name).count if client.collection_exists(name) else 0
-    return {"status": "ok", "index": counts, "llm": await llm.status()}
+    # Qdrant calls are blocking: keep them off the event loop so streaming chats are not stalled.
+    return {"status": "ok", "index": await run_in_threadpool(_index_counts), "llm": await llm.status()}
 
 
 @app.get("/api/search")

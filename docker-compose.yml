@@ -15,7 +15,16 @@ services:
     ports:
       - "11434:11434"
 
-  ollama-pull:
+  # one-shot helpers that pull the models into the ollama volume
+  pull-embed:
+    image: ollama/ollama:0.40.3
+    depends_on: [ollama]
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: ["/bin/sh", "-c", "until ollama list >/dev/null 2>&1; do sleep 1; done; ollama pull ${EMBED_MODEL:-bge-m3}"]
+    restart: "no"
+
+  pull-llm:
     image: ollama/ollama:0.40.3
     depends_on: [ollama]
     environment:
@@ -27,15 +36,21 @@ services:
     build:
       context: .
       dockerfile: backend/Dockerfile
-    depends_on: [qdrant, ollama]
+    depends_on:
+      qdrant:
+        condition: service_started
+      pull-embed:
+        condition: service_completed_successfully
     environment:
       QDRANT_URL: http://qdrant:6333
       OLLAMA_URL: http://ollama:11434
       LLM_MODEL: ${LLM_MODEL:-gemma4:12b}
+      EMBED_MODEL: ${EMBED_MODEL:-bge-m3}
+      # prebuilt index (vectors + payloads); set empty to build it locally from the books
+      INDEX_URL: ${INDEX_URL-https://github.com/mehmetaras2206/SemanticBookAI/releases/download/v1.0.0/index.tar.gz}
     volumes:
       - book_data:/srv/data/processed
       - book_raw:/srv/data/raw
-      - embedding_models:/models
     ports:
       - "8000:8000"
 
@@ -50,4 +65,3 @@ volumes:
   ollama_models:
   book_data:
   book_raw:
-  embedding_models:

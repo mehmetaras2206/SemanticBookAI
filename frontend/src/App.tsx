@@ -16,7 +16,7 @@ interface Message {
 }
 
 export default function App() {
-  const [health, setHealth] = useState<Health | null>(null)
+  const [health, setHealth] = useState<Health | null | undefined>(undefined)
   const [selected, setSelected] = useState<Book | null>(null)
   const [passage, setPassage] = useState<Source | null>(null)
 
@@ -45,7 +45,8 @@ export default function App() {
   )
 }
 
-function StatusBadge({ health }: { health: Health | null }) {
+function StatusBadge({ health }: { health: Health | null | undefined }) {
+  if (health === undefined) return <span className="badge">connecting…</span>
   if (!health) return <span className="badge warn">API offline</span>
   const llm = health.llm
   const llmText = !llm.reachable ? 'LLM offline' : llm.model_ready ? llm.model : `${llm.model} not pulled`
@@ -150,7 +151,9 @@ function ChatPanel({ book, onClearBook, onOpenSource }: {
   const abortRef = useRef<AbortController | null>(null)
   const endRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' }), [messages])
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
+  }, [messages])
 
   const update = (fn: (m: Message) => Message) =>
     setMessages((ms) => [...ms.slice(0, -1), fn(ms[ms.length - 1])])
